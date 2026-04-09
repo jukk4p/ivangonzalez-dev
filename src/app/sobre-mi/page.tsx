@@ -28,13 +28,13 @@ export default function AboutPage() {
 
               <div className="md:col-span-2 text-text-muted space-y-6 text-lg leading-relaxed">
                 <p>
-                  ¡Hola! Soy <span className="text-white font-bold">Iván González</span>, un desarrollador apasionado por crear soluciones digitales que sean útiles y fáciles de usar. Mi camino en la programación empezó por curiosidad y rápidamente se convirtió en mi profesión y hobby principal.
+                  ¡Hola! Soy <span className="text-white font-bold">Iván González</span>, un entusiasta del desarrollo web que disfruta convirtiendo ideas en código. Lo que empezó como una curiosidad se ha transformado en mi gran pasión, y hoy dedico mi tiempo a perfeccionar mis habilidades para dar el salto al mundo profesional.
                 </p>
                 <p>
-                  Me especializo en el desarrollo de <strong>sitios web y aplicaciones móviles</strong>. Mi enfoque es simple: crear productos que funcionen perfectamente, carguen rápido y tengan un diseño que encante al usuario. No busco complicaciones innecesarias, sino resultados efectivos que aporten valor real.
+                  Mi enfoque actual es construir <strong>sitios web y aplicaciones móviles</strong> que funcionen bien y aporten soluciones prácticas. Creo firmemente que la mejor forma de aprender es haciendo, por eso desarrollo proyectos propios donde exploro tecnologías modernas como <strong>Next.js, React y Kotlin</strong>.
                 </p>
                 <p>
-                  Aunque estoy en una etapa temprana de mi carrera, he tenido la oportunidad de trabajar en diversos proyectos que me han permitido pulir mis habilidades en tecnologías modernas como <strong>Next.js, React, TypeScript y Kotlin</strong>.
+                  Soy un desarrollador en constante formación, autodidacta y con muchas ganas de afrontar nuevos retos. Mi objetivo es seguir creciendo, aprender de cada línea de código y demostrar mi potencial a través de resultados tangibles y funcionales.
                 </p>
               </div>
             </div>
