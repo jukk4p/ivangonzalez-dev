@@ -24,7 +24,7 @@ export default function AboutPage() {
                    <img 
                     src="/ivan.jpg" 
                     alt="Iván González" 
-                    className="w-full h-full object-cover object-[center_top_18%] scale-[1.5] transition-transform duration-700 group-hover:scale-[1.6]"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                    />
                    <div className="absolute inset-0 border-2 border-neon-cyan/20 rounded-2xl pointer-events-none"></div>
                 </div>
