@@ -1,0 +1,89 @@
+import CanvasBackground from '@/components/ui/CanvasBackground';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import ScrollObserverProvider from '@/components/layout/ScrollObserverProvider';
+
+export default function AboutPage() {
+  return (
+    <main className="relative min-h-screen">
+      <CanvasBackground />
+      <Navbar />
+      
+      <ScrollObserverProvider>
+        <section className="pt-32 pb-20 container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-space-grotesk font-bold mb-12 relative inline-block">
+              Sobre mí
+              <span className="absolute -bottom-3 left-0 w-20 h-1 bg-neon-cyan rounded-full"></span>
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-8">
+              {/* Profile Image / Placeholder */}
+              <div className="md:col-span-1">
+                <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center relative overflow-hidden group">
+                   <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-violet/20 opacity-50"></div>
+                   <span className="text-6xl group-hover:scale-110 transition-transform duration-500">👨‍💻</span>
+                </div>
+              </div>
+
+              <div className="md:col-span-2 text-text-muted space-y-6 text-lg leading-relaxed">
+                <p>
+                  ¡Hola! Soy <span className="text-white font-bold">Iván González</span>, un desarrollador apasionado por crear soluciones digitales que sean útiles y fáciles de usar. Mi camino en la programación empezó por curiosidad y rápidamente se convirtió en mi profesión y hobby principal.
+                </p>
+                <p>
+                  Me especializo en el desarrollo de <strong>sitios web y aplicaciones móviles</strong>. Mi enfoque es simple: crear productos que funcionen perfectamente, carguen rápido y tengan un diseño que encante al usuario. No busco complicaciones innecesarias, sino resultados efectivos que aporten valor real.
+                </p>
+                <p>
+                  Aunque estoy en una etapa temprana de mi carrera, he tenido la oportunidad de trabajar en diversos proyectos que me han permitido pulir mis habilidades en tecnologías modernas como <strong>Next.js, React, TypeScript y Kotlin</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-24">
+              <h3 className="text-2xl font-bold mb-10 text-white">Mi Stack Tecnológico</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {['React', 'Next.js', 'Typescript', 'Tailwind CSS', 'Node.js', 'Kotlin', 'Android', 'Firebase', 'Git', 'UI Design'].map((skill) => (
+                  <div key={skill} className="bg-white/5 border border-white/10 p-4 rounded-xl text-center group hover:border-neon-violet transition-all">
+                    <span className="text-sm font-space-mono text-text-muted group-hover:text-neon-violet transition-colors">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-24 p-8 bg-white/5 border border-white/10 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6 text-white text-center">¿Por qué trabajar conmigo?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-neon-cyan mb-4 text-2xl">⚡</div>
+                  <h4 className="font-bold text-white mb-2">Compromiso</h4>
+                  <p className="text-sm text-text-muted">Me tomo cada proyecto como un reto personal para dar lo mejor de mí.</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-neon-cyan mb-4 text-2xl">📚</div>
+                  <h4 className="font-bold text-white mb-2">Aprendizaje</h4>
+                  <p className="text-sm text-text-muted">Estoy en formación constante para aplicar las mejores prácticas.</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-neon-cyan mb-4 text-2xl">🤝</div>
+                  <h4 className="font-bold text-white mb-2">Claridad</h4>
+                  <p className="text-sm text-text-muted">Me gusta la comunicación directa y honesta en todo el proceso.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-20 text-center">
+               <a 
+                href="/contacto" 
+                className="inline-block px-12 py-4 bg-neon-violet/10 border-2 border-neon-violet text-neon-violet font-bold uppercase tracking-widest rounded-lg hover:bg-neon-violet hover:text-white transition-all shadow-[0_0_20px_rgba(157,78,221,0.2)]"
+              >
+                ¿Hablamos?
+              </a>
+            </div>
+          </div>
+        </section>
+      </ScrollObserverProvider>
+
+      <Footer />
+    </main>
+  );
+}
