@@ -20,9 +20,13 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-8">
               {/* Profile Image / Placeholder */}
               <div className="md:col-span-1">
-                <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center relative overflow-hidden group">
-                   <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-violet/20 opacity-50"></div>
-                   <span className="text-6xl group-hover:scale-110 transition-transform duration-500">👨‍💻</span>
+                <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center relative overflow-hidden group shadow-[0_0_20px_rgba(0,245,212,0.1)]">
+                   <img 
+                    src="/ivan.jpg" 
+                    alt="Iván González" 
+                    className="w-full h-full object-cover object-[center_top_18%] scale-[1.5] transition-transform duration-700 group-hover:scale-[1.6]"
+                   />
+                   <div className="absolute inset-0 border-2 border-neon-cyan/20 rounded-2xl pointer-events-none"></div>
                 </div>
               </div>
 
