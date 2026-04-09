@@ -25,9 +25,15 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 w-full h-20 flex items-center z-50 transition-all duration-300 ${scrolled ? 'bg-bg-glass backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}>
       <div className="container mx-auto px-8 w-full flex justify-between items-center">
-        <Link href="/" className="font-space-grotesk text-2xl font-extrabold tracking-tighter text-neon-cyan relative group">
-          IG
-          <span className="absolute bottom-0 left-0 w-full h-[2px] bg-neon-violet scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full"></span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Iván González Logo" 
+            className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+          />
+          <span className="hidden md:block text-base font-space-grotesk font-bold tracking-tight text-white/90 group-hover:text-neon-cyan transition-colors">
+            Iván González
+          </span>
         </Link>
         <ul className="hidden md:flex gap-10">
           {navLinks.map((link) => (
