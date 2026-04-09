@@ -7,12 +7,11 @@ export async function GET() {
   }
 
   try {
-    const response = await fetch('https://api.github.com/user/repos?visibility=private&sort=updated&per_page=6', {
+    const response = await fetch('https://api.github.com/user/repos?visibility=private&sort=updated&per_page=15', {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
       },
-      // Optionally cache this if it's not updating constantly
       next: { revalidate: 3600 } 
     });
 
@@ -23,46 +22,39 @@ export async function GET() {
     const repos = await response.json();
 
     const repoCustomData: Record<string, { desc: string, topics: string[], liveUrl?: string }> = {
-      'CafeBarTiti': {
-        desc: 'Menú digital sencillo y práctico para bares y cafeterías. Permite ver productos de forma cómoda en el móvil y gestionar pedidos básicos.',
-        topics: ['Next.js', 'React Native', 'Frontend', 'UI Design'],
-        liveUrl: 'https://bartiti.ivangonzalez.cloud/' 
-      },
-      'GestorDeTareasDAM': {
-        desc: 'Aplicación de práctica para organizar tareas diarias. Desarrollada para aprender el manejo de bases de datos locales y persistencia en Android.',
-        topics: ['Kotlin', 'Android', 'SQLite', 'Room']
-      },
       'TuMejorTarifaLuz': {
-        desc: 'Página web informativa para comparar precios de la luz. Enfocada en ser rápida, fácil de usar y con un diseño claro.',
-        topics: ['Web Design', 'SEO', 'JavaScript', 'Firebase'],
-        liveUrl: 'https://www.tumejortarifaluz.es/'
+        desc: 'Plataforma de análisis de tarifas eléctricas que ayuda a usuarios en España a optimizar su factura. Desarrollada con un fuerte enfoque en SEO y rendimiento.',
+        topics: ['Next.js', 'Firebase', 'Data Analysis', 'SEO Optimization'],
+        liveUrl: 'https://v2.tumejortarifaluz.es/'
       },
       'AuraContable': {
-        desc: 'Pequeña herramienta para llevar el registro de gastos e ingresos personales de forma organizada y sencilla.',
-        topics: ['React', 'TypeScript', 'Finance', 'Hooks'],
+        desc: 'Solución de gestión financiera orientada a la simplicidad. Permite llevar un control riguroso de ingresos y gastos con reportes visuales claros.',
+        topics: ['React', 'TypeScript', 'Tailwind CSS', 'Finance UI'],
         liveUrl: 'https://auracontable.ivangonzalez.cloud/'
       },
-      'ConHdeHelena': {
-        desc: 'Web personal creada para mostrar servicios y trabajos creativos con un estilo limpio y profesional.',
-        topics: ['Portfolio', 'Design', 'Next.js', 'Vercel'],
-        liveUrl: 'https://conhdehelena.es/'
-      },
-      'OroManager': {
-        desc: 'Sistema básico para controlar el stock de productos y registrar movimientos de inventario de manera eficiente.',
-        topics: ['Inventory', 'Dashboard', 'Admin', 'CRUD']
+      'CafeBarTiti': {
+        desc: 'Sistema de carta digital interactiva para hostelería. Diseñado para mejorar la experiencia del cliente y agilizar la visualización de carta en dispositivos móviles.',
+        topics: ['React', 'Interactive UI', 'Next.js', 'User Experience'],
+        liveUrl: 'https://bartiti.ivangonzalez.cloud/' 
       }
     };
 
-    const formattedRepos = repos.map((repo: any) => ({
-      id: repo.id,
-      title: repo.name,
-      desc: repoCustomData[repo.name]?.desc || repo.description || 'Proyecto desarrollado con ganas de aprender y mejorar mis habilidades en programación.',
-      url: repo.html_url,
-      liveUrl: repoCustomData[repo.name]?.liveUrl || null,
-      updated_at: repo.updated_at,
-      language: repo.language,
-      topics: repoCustomData[repo.name]?.topics || repo.topics || [],
-    }));
+    // Orden específico solicitado por el usuario
+    const order = ['TuMejorTarifaLuz', 'AuraContable', 'CafeBarTiti'];
+
+    const formattedRepos = repos
+      .filter((repo: any) => order.includes(repo.name))
+      .map((repo: any) => ({
+        id: repo.id,
+        title: repo.name,
+        desc: repoCustomData[repo.name].desc,
+        url: repo.html_url,
+        liveUrl: repoCustomData[repo.name].liveUrl || null,
+        updated_at: repo.updated_at,
+        language: repo.language,
+        topics: repoCustomData[repo.name].topics,
+      }))
+      .sort((a: any, b: any) => order.indexOf(a.title) - order.indexOf(b.title));
 
     return NextResponse.json(formattedRepos);
   } catch (error) {
