@@ -12,11 +12,11 @@ export async function GET() {
         Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
       },
-      next: { revalidate: 3600 } 
+      next: { revalidate: 3600 }
     });
 
     if (!response.ok) {
-        throw new Error('Failed to fetch from GitHub');
+      throw new Error('Failed to fetch from GitHub');
     }
 
     const repos = await response.json();
@@ -36,11 +36,6 @@ export async function GET() {
         desc: 'Aplicación nativa Android para la comparación de tarifas eléctricas en España. Desarrollada con Kotlin y Jetpack Compose bajo arquitectura MVVM.',
         topics: ['Kotlin', 'Android', 'Jetpack Compose', 'MVVM']
       },
-      'hgnpintus': {
-        desc: 'Sitio web profesional para empresa de pintura y trabajos verticales en Sevilla. Optimizado para SEO y conversión con una estética limpia y moderna.',
-        topics: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Professional'],
-        liveUrl: 'https://hgnpinturas.ivangonzalez.cloud/'
-      },
       'HGNPinturas': {
         desc: 'Sitio web profesional para empresa de pintura y trabajos verticales en Sevilla. Optimizado para SEO y conversión con una estética limpia y moderna.',
         topics: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Professional'],
@@ -54,7 +49,7 @@ export async function GET() {
       'CafeBarTiti': {
         desc: 'Sistema de carta digital interactiva para hostelería. Diseñado para mejorar la experiencia del cliente y agilizar la visualización de carta en dispositivos móviles.',
         topics: ['React', 'Interactive UI', 'Next.js', 'User Experience'],
-        liveUrl: 'https://bartiti.ivangonzalez.cloud/' 
+        liveUrl: 'https://bartiti.ivangonzalez.cloud/'
       }
     };
 
