@@ -21,7 +21,7 @@ export async function GET() {
 
     const repos = await response.json();
 
-    const repoCustomData: Record<string, { desc: string, topics: string[], liveUrl?: string }> = {
+    const repoCustomData: Record<string, { desc: string, topics: string[], liveUrl?: string, customTitle?: string }> = {
       'TuMejorTarifaLuz': {
         desc: 'Plataforma de análisis de tarifas eléctricas que ayuda a usuarios en España a optimizar su factura. Desarrollada con un fuerte enfoque en SEO y rendimiento.',
         topics: ['Next.js', 'Firebase', 'Data Analysis', 'SEO Optimization'],
@@ -36,10 +36,11 @@ export async function GET() {
         desc: 'Aplicación nativa Android para la comparación de tarifas eléctricas en España. Desarrollada con Kotlin y Jetpack Compose bajo arquitectura MVVM.',
         topics: ['Kotlin', 'Android', 'Jetpack Compose', 'MVVM']
       },
-      'HGNPinturas': {
+      'hgnpintus': {
         desc: 'Sitio web profesional para empresa de pintura y trabajos verticales en Sevilla. Optimizado para SEO y conversión con una estética limpia y moderna.',
         topics: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Professional'],
-        liveUrl: 'https://hgnpinturas.ivangonzalez.cloud/'
+        liveUrl: 'https://hgnpinturas.ivangonzalez.cloud/',
+        customTitle: 'HGNPinturas'
       },
       'AuraContable': {
         desc: 'Solución de gestión financiera orientada a la simplicidad. Permite llevar un control riguroso de ingresos y gastos con reportes visuales claros.',
@@ -54,13 +55,13 @@ export async function GET() {
     };
 
     // Orden específico solicitado por el usuario
-    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'AuraContable', 'TuMejorTarifaLuz_Kotlin', 'HGNPinturas', 'CafeBarTiti'];
+    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'AuraContable', 'TuMejorTarifaLuz_Kotlin', 'hgnpintus', 'CafeBarTiti'];
 
     const formattedRepos = repos
       .filter((repo: any) => order.includes(repo.name) && repoCustomData[repo.name])
       .map((repo: any) => ({
         id: repo.id,
-        title: repo.name,
+        title: repoCustomData[repo.name].customTitle || repo.name,
         desc: repoCustomData[repo.name].desc,
         url: repo.html_url,
         liveUrl: repoCustomData[repo.name].liveUrl || null,
@@ -68,7 +69,11 @@ export async function GET() {
         language: repo.language,
         topics: repoCustomData[repo.name].topics,
       }))
-      .sort((a: any, b: any) => order.indexOf(a.title) - order.indexOf(b.title));
+      .sort((a: any, b: any) => {
+        const titleA = repos.find((r: any) => r.id === a.id)?.name;
+        const titleB = repos.find((r: any) => r.id === b.id)?.name;
+        return order.indexOf(titleA) - order.indexOf(titleB);
+      });
 
     return NextResponse.json(formattedRepos);
   } catch (error) {
