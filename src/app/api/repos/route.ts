@@ -25,7 +25,7 @@ export async function GET() {
       'TuMejorTarifaLuz': {
         desc: 'Plataforma de análisis de tarifas eléctricas que ayuda a usuarios en España a optimizar su factura. Desarrollada con un fuerte enfoque en SEO y rendimiento.',
         topics: ['Next.js', 'Firebase', 'Data Analysis', 'SEO Optimization'],
-        liveUrl: 'https://v2.tumejortarifaluz.es/'
+        liveUrl: 'https://tumejortarifaluz.es/'
       },
       'ConHdeHelena': {
         desc: 'Tienda online de regalos únicos y detalles artesanales personalizados. Un espacio donde el diseño y la magia se encuentran en cada detalle.',
