@@ -30,7 +30,7 @@ export async function GET() {
       'ConHdeHelena': {
         desc: 'Tienda online de regalos únicos y detalles artesanales personalizados. Un espacio donde el diseño y la magia se encuentran en cada detalle.',
         topics: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'E-commerce'],
-        liveUrl: 'https://conhdehelena.ivangonzalez.cloud/'
+        liveUrl: 'https://conhdehelena.es'
       },
       'TuMejorTarifaLuz_Kotlin': {
         desc: 'Aplicación nativa Android para la comparación de tarifas eléctricas en España. Desarrollada con Kotlin y Jetpack Compose bajo arquitectura MVVM.',
@@ -59,7 +59,7 @@ export async function GET() {
     };
 
     // Orden específico solicitado por el usuario
-    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'TuMejorTarifaLuz_Kotlin', 'hgnpintus', 'HGNPinturas', 'AuraContable', 'CafeBarTiti'];
+    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'AuraContable', 'TuMejorTarifaLuz_Kotlin', 'hgnpintus', 'HGNPinturas', 'CafeBarTiti'];
 
     const formattedRepos = repos
       .filter((repo: any) => order.includes(repo.name))
