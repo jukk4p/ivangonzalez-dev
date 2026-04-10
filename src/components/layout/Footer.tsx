@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand Column */}
-          <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4">
+            <Link href="/" className="flex items-center gap-2 justify-center md:justify-start">
               <img src="/logo.png" alt="Ivan Gonzalez Logo" className="h-8 w-auto" />
               <span className="text-xl font-space-grotesk font-bold text-white">Iván González</span>
             </Link>
@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <h4 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Navegación</h4>
             <ul className="flex flex-col gap-4">
               <li><Link href="/" className="text-text-muted hover:text-neon-cyan transition-colors text-sm">Inicio</Link></li>
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Conecta conmigo</h4>
             <div className="flex gap-4">
               <a 
