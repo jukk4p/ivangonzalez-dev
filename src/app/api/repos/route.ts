@@ -54,10 +54,10 @@ export async function GET() {
     };
 
     // Orden específico solicitado por el usuario
-    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'AuraContable', 'TuMejorTarifaLuz_Kotlin', 'hgnpintus', 'HGNPinturas', 'CafeBarTiti'];
+    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'AuraContable', 'TuMejorTarifaLuz_Kotlin', 'HGNPinturas', 'CafeBarTiti'];
 
     const formattedRepos = repos
-      .filter((repo: any) => order.includes(repo.name))
+      .filter((repo: any) => order.includes(repo.name) && repoCustomData[repo.name])
       .map((repo: any) => ({
         id: repo.id,
         title: repo.name,
