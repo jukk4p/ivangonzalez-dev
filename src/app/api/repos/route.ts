@@ -7,7 +7,7 @@ export async function GET() {
   }
 
   try {
-    const response = await fetch('https://api.github.com/user/repos?visibility=private&sort=updated&per_page=15', {
+    const response = await fetch('https://api.github.com/user/repos?visibility=all&sort=updated&per_page=50', {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/vnd.github.v3+json',
@@ -27,6 +27,25 @@ export async function GET() {
         topics: ['Next.js', 'Firebase', 'Data Analysis', 'SEO Optimization'],
         liveUrl: 'https://v2.tumejortarifaluz.es/'
       },
+      'ConHdeHelena': {
+        desc: 'Tienda online de regalos únicos y detalles artesanales personalizados. Un espacio donde el diseño y la magia se encuentran en cada detalle.',
+        topics: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'E-commerce'],
+        liveUrl: 'https://conhdehelena.ivangonzalez.cloud/'
+      },
+      'TuMejorTarifaLuz_Kotlin': {
+        desc: 'Aplicación nativa Android para la comparación de tarifas eléctricas en España. Desarrollada con Kotlin y Jetpack Compose bajo arquitectura MVVM.',
+        topics: ['Kotlin', 'Android', 'Jetpack Compose', 'MVVM']
+      },
+      'hgnpintus': {
+        desc: 'Sitio web profesional para empresa de pintura y trabajos verticales en Sevilla. Optimizado para SEO y conversión con una estética limpia y moderna.',
+        topics: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Professional'],
+        liveUrl: 'https://hgnpinturas.ivangonzalez.cloud/'
+      },
+      'HGNPinturas': {
+        desc: 'Sitio web profesional para empresa de pintura y trabajos verticales en Sevilla. Optimizado para SEO y conversión con una estética limpia y moderna.',
+        topics: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'SEO Professional'],
+        liveUrl: 'https://hgnpinturas.ivangonzalez.cloud/'
+      },
       'AuraContable': {
         desc: 'Solución de gestión financiera orientada a la simplicidad. Permite llevar un control riguroso de ingresos y gastos con reportes visuales claros.',
         topics: ['React', 'TypeScript', 'Tailwind CSS', 'Finance UI'],
@@ -40,7 +59,7 @@ export async function GET() {
     };
 
     // Orden específico solicitado por el usuario
-    const order = ['TuMejorTarifaLuz', 'AuraContable', 'CafeBarTiti'];
+    const order = ['TuMejorTarifaLuz', 'ConHdeHelena', 'TuMejorTarifaLuz_Kotlin', 'hgnpintus', 'HGNPinturas', 'AuraContable', 'CafeBarTiti'];
 
     const formattedRepos = repos
       .filter((repo: any) => order.includes(repo.name))

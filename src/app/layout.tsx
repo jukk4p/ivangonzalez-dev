@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     description: 'Creación de sitios web modernos y aplicaciones móviles funcionales.',
     type: 'website',
     url: 'https://ivangonzalez.cloud',
+  },
+  icons: {
+    icon: '/logo.png?v=1',
+    apple: '/logo.png?v=1',
   }
 };
 
