@@ -24,14 +24,14 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a 
             href="#contacto" 
-            className="w-full sm:w-auto px-10 py-4 font-bold uppercase tracking-wider bg-accent text-bg-deep rounded-lg 
+            className="px-10 py-4 font-bold uppercase tracking-wider bg-accent text-bg-deep rounded-lg 
             hover:bg-accent-hover transition-all duration-300 shadow-[0_0_20px_rgba(15,157,140,0.3)] hover:shadow-[0_0_30px_rgba(15,157,140,0.5)]"
           >
             Hablemos de tu idea
           </a>
           <a 
             href="/servicios" 
-            className="w-full sm:w-auto px-10 py-4 font-bold uppercase tracking-wider text-white border-2 border-white/10 rounded-lg 
+            className="px-10 py-4 font-bold uppercase tracking-wider text-white border-2 border-white/10 rounded-lg 
             hover:bg-white/5 hover:border-accent transition-all duration-300"
           >
             Ver servicios

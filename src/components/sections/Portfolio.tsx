@@ -25,8 +25,13 @@ export default async function Portfolio({ limit }: { limit?: number }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayRepos.map((repo) => (
-            <ProjectCard key={repo.id} repo={repo} />
+          {displayRepos.map((repo, index) => (
+            <div 
+              key={repo.id} 
+              className={index === 3 ? 'hidden md:block lg:hidden' : ''}
+            >
+              <ProjectCard repo={repo} />
+            </div>
           ))}
         </div>
 

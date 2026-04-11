@@ -7,31 +7,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: '--font-space
 const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: '--font-space-mono' });
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: '--font-bricolage' });
 
-export const metadata: Metadata = {
-  title: 'Iván González | Desarrollador Web Next.js y React · Freelance',
-  description: 'Desarrollo webs y apps a medida con Next.js, React y Kotlin. Freelance disponible. Solicita presupuesto sin compromiso.',
-  keywords: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Kotlin', 'Firebase', 'Freelance'],
-  authors: [{ name: 'Iván González' }],
-  metadataBase: new URL('https://www.ivangonzalez.cloud'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Iván González | Desarrollador Web Next.js y React · Freelance',
-    description: 'Desarrollo webs y apps a medida con Next.js, React y Kotlin. Freelance disponible.',
-    type: 'website',
-    url: 'https://www.ivangonzalez.cloud',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Iván González | Desarrollador Web Freelance',
-    description: 'Soluciones web modernas con Next.js y Kotlin.',
-  },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  }
-};
+import { SEO_DATA } from "@/config/seo";
+
+export const metadata: Metadata = SEO_DATA.home;
 
 export default function RootLayout({
   children,

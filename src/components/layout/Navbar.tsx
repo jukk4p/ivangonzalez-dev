@@ -55,13 +55,13 @@ export default function Navbar() {
             <div className={`w-10 h-10 rounded-lg bg-accent flex items-center justify-center font-display font-bold text-bg-deep transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
               IG
             </div>
-            <span className="hidden md:block text-lg font-display font-bold tracking-tight text-white group-hover:text-accent transition-colors">
+            <span className="hidden lg:block text-lg font-display font-bold tracking-tight text-white group-hover:text-accent transition-colors">
               Iván González
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <ul className="hidden md:flex gap-8 items-center">
+          <ul className="hidden lg:flex gap-6 items-center">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link 
@@ -95,7 +95,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden z-50 p-2 text-white hover:text-accent transition-colors focus:outline-none"
+            className="lg:hidden z-50 p-2 text-white hover:text-accent transition-colors focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
@@ -109,7 +109,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-40 bg-bg-deep/98 backdrop-blur-2xl transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center gap-10 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-40 bg-bg-deep/98 backdrop-blur-2xl transition-all duration-500 ease-in-out lg:hidden flex flex-col items-center justify-center gap-10 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
         {navLinks.map((link) => (
           <Link 
             key={link.name}
