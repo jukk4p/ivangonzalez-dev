@@ -1,8 +1,12 @@
+import { Suspense } from 'react';
 import CanvasBackground from '@/components/ui/CanvasBackground';
 import Navbar from '@/components/layout/Navbar';
 import Portfolio from '@/components/sections/Portfolio';
+import { ProjectCardSkeleton } from '@/components/sections/ProjectCard';
 import Footer from '@/components/layout/Footer';
-import ScrollObserverProvider from '@/components/layout/ScrollObserverProvider';
+import { SEO_DATA } from '@/config/seo';
+
+export const metadata = SEO_DATA.projects;
 
 export default function ProjectsPage() {
   return (
@@ -10,20 +14,13 @@ export default function ProjectsPage() {
       <CanvasBackground />
       <Navbar />
       
-      <ScrollObserverProvider>
-        <div className="pt-24 container mx-auto px-4">
-             <a 
-              href="/" 
-              className="inline-flex items-center gap-2 text-xs font-space-mono text-neon-cyan hover:text-white transition-colors uppercase tracking-widest"
-            >
-              <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-              <span>Volver al inicio</span>
-            </a>
+      <Suspense fallback={
+        <div className="py-32 container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: 6 }).map((_, i) => <ProjectCardSkeleton key={i} />)}
         </div>
+      }>
         <Portfolio />
-      </ScrollObserverProvider>
+      </Suspense>
 
       <Footer />
     </main>

@@ -5,11 +5,13 @@
   --color-bg-card: #0f0f1a;
   --color-text-main: #F0F0F5;
   --color-text-muted: #a0a0b0;
-  --color-neon-cyan: #00F5D4;
+  --color-accent: #0F9D8C;
+  --color-accent-hover: #0d8a7b;
   --color-neon-violet: #9B5DE5;
   --color-glass: rgba(15, 15, 26, 0.7);
   
   --font-inter: var(--font-inter), sans-serif;
+  --font-display: var(--font-bricolage), var(--font-space-grotesk), sans-serif;
   --font-space-grotesk: var(--font-space-grotesk), sans-serif;
   --font-space-mono: var(--font-space-mono), monospace;
 }
@@ -19,7 +21,8 @@
   --bg-card: #0f0f1a;
   --text-main: #F0F0F5;
   --text-muted: #a0a0b0;
-  --neon-cyan: #00F5D4;
+  --accent: #0F9D8C;
+  --accent-hover: #0d8a7b;
   --neon-violet: #9B5DE5;
 }
 
@@ -37,9 +40,31 @@ body {
 .fade-in-section {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--bg-deep);
 }
