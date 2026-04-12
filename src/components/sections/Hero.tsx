@@ -13,7 +13,7 @@ export default function Hero() {
         
         <div className="max-w-2xl mx-auto mb-10">
           <p className="font-space-mono text-lg md:text-xl text-accent mb-6 tracking-wide uppercase">
-            Desarrollador Web Next.js & React
+            Desarrollador Web | TypeScript, Next.js & React
           </p>
           <p className="text-text-muted text-xl md:text-2xl leading-relaxed">
             Construyo webs y apps con <span className="text-white font-bold">Next.js, React y Kotlin</span>. 

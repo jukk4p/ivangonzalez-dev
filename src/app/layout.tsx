@@ -8,6 +8,7 @@ const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], varia
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: '--font-bricolage' });
 
 import { SEO_DATA } from "@/config/seo";
+import CookieBanner from "@/components/ui/CookieBanner";
 
 export const metadata: Metadata = SEO_DATA.home;
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

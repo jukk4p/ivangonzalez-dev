@@ -33,14 +33,6 @@ export default function Services() {
       price: "desde 400€",
       features: ["Kotlin & Jetpack Compose", "Arquitectura MVVM", "Publicación en Play Store"],
       icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-    },
-    {
-      title: "APIs & Firebase",
-      desc: "Integración de bases de datos en tiempo real, sistemas de autenticación y lógica de servidor para tu aplicación.",
-      time: "2-4 semanas",
-      price: "desde 200€",
-      features: ["Firestore setup", "Auth & Social Login", "Cloud Functions"],
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6m-2-12l-4-4m0 0l-4 4m4-4v12" />
     }
   ];
 
@@ -62,7 +54,12 @@ export default function Services() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((srv, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-[#0f0f1a] to-[#080810] p-8 rounded-2xl border border-white/5 hover:border-accent transition-all duration-300 flex flex-col items-start text-left">
+            <div 
+              key={idx} 
+              className={`bg-gradient-to-br from-[#0f0f1a] to-[#080810] p-8 rounded-2xl border border-white/5 hover:border-accent transition-all duration-300 flex flex-col items-start text-left ${
+                idx === 3 ? 'lg:col-start-2' : ''
+              }`}
+            >
               <div className="w-12 h-12 mb-6 text-accent">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   {srv.icon}
