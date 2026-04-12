@@ -13,24 +13,34 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "cafe-bar-titi",
-    title: "Cafe Bar Titi",
-    description: "Menú digital interactivo con sistema de pedidos optimizado para hostelería.",
-    longDescription: "Desarrollo de una Progressive Web App (PWA) para el Cafe Bar Titi, permitiendo a los clientes visualizar la carta mediante códigos QR, gestionar pedidos en tiempo real y mejorar la eficiencia del servicio. Implementado con un diseño minimalista y badge-based quantity system.",
+    title: "Cafe Bar Titi - Hostelería Digital",
+    description: "Sistema integral de carta digital con gestión de pedidos y alérgenos en tiempo real.",
+    longDescription: "Transformación digital completa de la experiencia en sala. Esta PWA elimina la fricción en el pedido mediante una arquitectura de alto rendimiento que garantiza tiempos de carga instantáneos. Implementa un sistema inteligente de alérgenos y variantes dinámicas, permitiendo al staff actualizar la oferta al instante y reduciendo costes de impresión y errores manuales.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     githubUrl: "https://github.com/jukk4p/CafeBarTiti",
     liveUrl: "https://bartiti.ivangonzalez.cloud",
-    features: ["Menú QR dinámico", "Gestión de variantes (Lomo/Pollo)", "Carrito de pedidos offline-first", "Interfaz optimizada para móviles"],
+    features: [
+      "Sistema Inteligente de Alérgenos: Seguridad alimentaria integrada por plato.",
+      "Gestión de Stock en Tiempo Real: Actualización inmediata de productos agotados.",
+      "UX de Alta Conversión: Interfaz minimalista optimizada para procesos de pedido rápidos.",
+      "Arquitectura Offline-First: Resiliencia total ante caídas de red en el local."
+    ],
     category: "web"
   },
   {
     slug: "tumejortarifaluz",
     title: "TuMejorTarifaLuz Web",
-    description: "Plataforma de análisis y comparación de tarifas eléctricas en tiempo real.",
-    longDescription: "Herramienta web diseñada para ayudar a los usuarios a ahorrar en su factura de la luz mediante la monitorización de precios del mercado mayorista y el análisis de sus hábitos de consumo. Incluye visualizaciones avanzadas de periodos Punta, Llano y Valle.",
+    description: "Comparador independiente de energía con análisis predictivo de consumo.",
+    longDescription: "Plataforma de asesoría energética diseñada para democratizar el ahorro eléctrico. Mediante el análisis masivo de datos del mercado mayorista (OMIE) y el procesamiento de facturas PDF, el sistema encuentra la tarifa óptima entre más de 100 comercializadoras. Foco absoluto en el rendimiento (100 Lighthouse) y optimización SEO masiva.",
     tech: ["React", "Next.js", "Chart.js", "Tailwind CSS"],
     githubUrl: "https://github.com/jukk4p/TuMejorTarifaLuz",
     liveUrl: "https://tumejortarifaluz.es",
-    features: ["Comparador de tarifas", "Análisis de consumo por periodos", "Notificaciones de precios bajos", "Dashboard interactivo"],
+    features: [
+      "Motor de Comparación Independiente: Algoritmo libre de sesgos comerciales.",
+      "Análisis de Factura por IA: Extracción y simulación automática de ahorro.",
+      "Visualización Avanzada de Consumo: Desglose por periodos Punta, Llano y Valle.",
+      "Core Web Vitals Optimizados: Experiencia de usuario ultra-fluida y SEO-ready."
+    ],
     category: "web"
   },
   {
