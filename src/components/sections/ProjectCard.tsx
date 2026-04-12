@@ -40,7 +40,14 @@ export default function ProjectCard({ repo }: { repo: FormattedRepo }) {
           </div>
 
           <div className="flex items-center gap-4">
-            {repo.liveUrl && (
+            {repo.slug ? (
+               <a 
+                href={`/proyectos/${repo.slug}`}
+                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest bg-accent text-bg-deep px-3 py-2 rounded-lg hover:bg-accent-hover transition-all duration-300"
+              >
+                <span>Ver Detalles</span>
+              </a>
+            ) : repo.liveUrl && (
               <a 
                 href={repo.liveUrl} 
                 target="_blank" 

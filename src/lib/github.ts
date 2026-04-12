@@ -74,7 +74,14 @@ export const getGitHubRepos = unstable_cache(
         'TuMejorTarifaLuz': { 
           title: 'TuMejorTarifaLuz',
           desc: 'Solución enfocada en el análisis de facturas eléctricas. Permite comparar precios entre las principales comercializadoras para optimizar el ahorro doméstico.',
-          liveUrl: 'https://tumejortarifaluz.es'
+          liveUrl: 'https://tumejortarifaluz.es',
+          slug: 'tumejortarifaluz'
+        },
+        'TuMejorTarifaLuz_Web': { 
+          title: 'TuMejorTarifaLuz',
+          desc: 'Solución enfocada en el análisis de facturas eléctricas. Permite comparar precios entre las principales comercializadoras para optimizar el ahorro doméstico.',
+          liveUrl: 'https://tumejortarifaluz.es',
+          slug: 'tumejortarifaluz'
         },
         'TuMejorTarifaLuz_Kotlin': {
           title: 'TuMejorTarifaLuz (Android)',
@@ -83,12 +90,14 @@ export const getGitHubRepos = unstable_cache(
         'CafeBarTiti': {
           title: 'Cafe Bar Titi - Hostelería Digital',
           desc: 'Solución web integral para el sector de la hostelería. Integra una carta interactiva con gestión de alérgenos y categorías dinámicas, optimizada para ofrecer una experiencia premium en sala.',
-          liveUrl: 'https://bartiti.ivangonzalez.cloud'
+          liveUrl: 'https://bartiti.ivangonzalez.cloud',
+          slug: 'cafe-bar-titi'
         },
         'HGNPinturas': { 
           title: 'HGNPinturas - Pintura Profesional',
           desc: 'Solución digital para el sector de la pintura y reformas integrales. Especializada en servicios para edificios y comunidades, con una gestión visual de proyectos y presupuestos.',
-          liveUrl: 'https://hgnpinturas.ivangonzalez.cloud'
+          liveUrl: 'https://hgnpinturas.ivangonzalez.cloud',
+          slug: 'hgn-pinturas'
         },
         'AuraContable': {
           desc: 'Software de gestión contable para autónomos y PYMES. Dashboard financiero con métricas clave, control de IVA y balances de situación automáticos.',
@@ -97,12 +106,14 @@ export const getGitHubRepos = unstable_cache(
         'ConhdeHelena': {
           title: 'ConhdeHelena',
           desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
-          liveUrl: 'https://conhdehelena.es'
+          liveUrl: 'https://conhdehelena.es',
+          slug: 'con-h-de-helena'
         },
         'ConHdeHelena': {
           title: 'ConhdeHelena',
           desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
-          liveUrl: 'https://conhdehelena.es'
+          liveUrl: 'https://conhdehelena.es',
+          slug: 'con-h-de-helena'
         },
         'OroManager': {
           desc: 'Aplicación interna para la gestión integral de inventarios y tasaciones en joyerías de lujo. Seguridad avanzada y trazabilidad de piezas.'
@@ -127,7 +138,8 @@ export const getGitHubRepos = unstable_cache(
             language: repo.language || 'Software',
             topics: repo.topics || [],
             stars: repo.stargazers_count,
-            isFork: repo.fork
+            isFork: repo.fork,
+            slug: override.slug
           };
         })
         .sort((a, b) => b.stars - a.stars);
