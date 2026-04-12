@@ -23,7 +23,7 @@ export const projects: Project[] = [
     category: "web"
   },
   {
-    slug: "tu-mejor-tarifa-luz",
+    slug: "tumejortarifaluz",
     title: "TuMejorTarifaLuz Web",
     description: "Plataforma de análisis y comparación de tarifas eléctricas en tiempo real.",
     longDescription: "Herramienta web diseñada para ayudar a los usuarios a ahorrar en su factura de la luz mediante la monitorización de precios del mercado mayorista y el análisis de sus hábitos de consumo. Incluye visualizaciones avanzadas de periodos Punta, Llano y Valle.",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     category: "web"
   },
   {
-    slug: "tu-mejor-tarifa-luz-android",
+    slug: "tumejortarifaluz-android",
     title: "TuMejorTarifaLuz Android",
     description: "Aplicación nativa Android para el control de gasto eléctrico con OCR.",
     longDescription: "Versión móvil nativa de la plataforma TuMejorTarifaLuz, desarrollada en Kotlin. Incluye funciones avanzadas como el escaneo de facturas mediante OCR y Gemini AI para extraer datos automáticamente y ofrecer recomendaciones de ahorro personalizadas.",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     category: "mobile"
   },
   {
-    slug: "aura-contable",
+    slug: "auracontable",
     title: "AuraContable",
     description: "Solución integral de gestión contable y facturación para PYMEs.",
     longDescription: "Software de gestión empresarial enfocado en la simplicidad y la potencia. Permite la generación de facturas, control de gastos, gestión de clientes y reportes financieros automáticos bajo una arquitectura escalable y segura.",
@@ -52,6 +52,28 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/jukk4p/AuraContable",
     liveUrl: "https://auracontable.ivangonzalez.cloud",
     features: ["Facturación automatizada", "Gestión de inventario", "Reportes financieros mensuales", "Multi-usuario con roles"],
+    category: "web"
+  },
+  {
+    slug: "con-h-de-helena",
+    title: "ConhdeHelena",
+    description: "Página web de regalos personalizados y artículos exclusivos.",
+    longDescription: "Espacio digital dedicado a la exposición de artesanía y regalos personalizados. El proyecto se centra en la versatilidad del diseño y la presentación premium de productos únicos, optimizando la experiencia de navegación para resaltar cada obra.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/jukk4p/ConhdeHelena",
+    liveUrl: "https://conhdehelena.es",
+    features: ["Galería de productos premium", "Diseño responsive elegante", "Optimización de imágenes", "Navegación intuitiva"],
+    category: "web"
+  },
+  {
+    slug: "hgn-pinturas",
+    title: "HGNPinturas",
+    description: "Plataforma digital para servicios de pintura y reformas integrales.",
+    longDescription: "Solución integral para la gestión y exposición de proyectos de pintura profesional. Permite a comunidades y edificios visualizar presupuestos, ver galerías de trabajos realizados y contactar directamente para servicios de reformas.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/jukk4p/HGNPinturas",
+    liveUrl: "https://hgnpinturas.ivangonzalez.cloud",
+    features: ["Portafolio de proyectos", "Gestión de presupuestos", "Optimización SEO local", "Interfaz administrativa"],
     category: "web"
   }
 ];

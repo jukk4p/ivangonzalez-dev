@@ -86,6 +86,7 @@ export const getGitHubRepos = unstable_cache(
         'TuMejorTarifaLuz_Kotlin': {
           title: 'TuMejorTarifaLuz (Android)',
           desc: 'Versión nativa para Android adaptada de la plataforma web. Desarrollada en Kotlin con Jetpack Compose, permite llevar el comparador y el escaneo de facturas por IA a cualquier lugar.',
+          slug: 'tumejortarifaluz-android'
         },
         'CafeBarTiti': {
           title: 'Cafe Bar Titi - Hostelería Digital',
@@ -101,7 +102,8 @@ export const getGitHubRepos = unstable_cache(
         },
         'AuraContable': {
           desc: 'Software de gestión contable para autónomos y PYMES. Dashboard financiero con métricas clave, control de IVA y balances de situación automáticos.',
-          liveUrl: 'https://auracontable.ivangonzalez.cloud'
+          liveUrl: 'https://auracontable.ivangonzalez.cloud',
+          slug: 'auracontable'
         },
         'ConhdeHelena': {
           title: 'ConhdeHelena',
