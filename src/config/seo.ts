@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 const siteConfig = {
   name: 'Iván González',
   url: 'https://www.ivangonzalez.cloud',
-  ogImage: 'https://www.ivangonzalez.cloud/og-image.jpg', // Placeholder - user should update
-  description: 'Desarrollo webs y apps a medida con Next.js, React y Kotlin. Freelance disponible.',
+  ogImage: 'https://www.ivangonzalez.cloud/og-image.jpg',
+  description: 'Desarrollador Web Freelance en Sevilla especializado en Next.js, React y TypeScript. Creación de sitios web a medida, landing pages y soluciones digitales.',
   links: {
     linkedin: 'https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114',
     github: 'https://github.com/jukk4p',
@@ -12,37 +12,33 @@ const siteConfig = {
 };
 
 export function constructMetadata({
-  title = siteConfig.name,
-  description = siteConfig.description,
+  title,
+  description,
   image = siteConfig.ogImage,
   noIndex = false,
-  canonicalUrl = siteConfig.url,
+  canonicalUrl,
+  keywords = [
+    'desarrollador web freelance Sevilla',
+    'Next.js React freelance España',
+    'programador web Sevilla',
+    'desarrollo web a medida',
+    'creación de landing pages',
+  ],
 }: {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   image?: string;
   noIndex?: boolean;
-  canonicalUrl?: string;
-} = {}): Metadata {
+  canonicalUrl: string;
+  keywords?: string[];
+}): Metadata {
   return {
-    title: {
-      default: title,
-      template: `%s | ${siteConfig.name}`,
-    },
+    title,
     description,
-    keywords: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Kotlin',
-      'Firebase',
-      'Desarrollador Web Freelance',
-      'Frontend Developer',
-      'Fullstack Developer',
-    ],
+    keywords,
     authors: [{ name: 'Iván González' }],
     creator: 'Iván González',
+    metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: canonicalUrl,
     },
@@ -52,7 +48,7 @@ export function constructMetadata({
       url: canonicalUrl,
       title,
       description,
-      siteName: title,
+      siteName: 'Iván González | Desarrollador Web Freelance',
       images: [
         {
           url: image,
@@ -69,57 +65,60 @@ export function constructMetadata({
       images: [image],
       creator: '@IvanGonzalezU',
     },
-    ...(noIndex && {
-      robots: {
-        index: false,
-        follow: false,
-      },
-    }),
+    robots: {
+      index: !noIndex,
+      follow: !noIndex,
+    },
   };
 }
 
 export const SEO_DATA = {
   home: constructMetadata({
-    title: 'Iván González | Desarrollador Web Next.js y React · Freelance',
-    description: 'Desarrollo webs y apps a medida con Next.js, React y Kotlin. Freelance disponible. Solicita presupuesto sin compromiso.',
-    canonicalUrl: siteConfig.url,
+    title: 'Iván González | Desarrollador Web Freelance Sevilla',
+    description: '¿Buscas un desarrollador web freelance en Sevilla? Especialista en Next.js y React. Proyectos a medida, rápidos y optimizados. ¡Hablemos de tu idea!',
+    canonicalUrl: '/',
+    keywords: ['desarrollador web freelance Sevilla', 'Next.js React freelance España', 'programador freelance', 'desarrollo web Sevilla'],
   }),
   about: constructMetadata({
-    title: 'Sobre mí — Iván González, Desarrollador Web Freelance',
-    description: 'Desarrollador web freelance especializado en Next.js, React y Tailwind. Stack moderno, entrega puntual y comunicación directa.',
-    canonicalUrl: `${siteConfig.url}/sobre-mi`,
+    title: 'Sobre mí — Programador Freelance Next.js Sevilla',
+    description: 'Conoce a Iván González, desarrollador web freelance en Sevilla. Especialista en crear soluciones escalables con Next.js, React y TypeScript.',
+    canonicalUrl: '/sobre-mi',
+    keywords: ['programador freelance Next.js Sevilla', 'desarrollador full stack Sevilla', 'sobre Iván González'],
   }),
   projects: constructMetadata({
-    title: 'Proyectos — Iván González',
-    description: 'Proyectos web y móviles con Next.js, React y Kotlin Android.',
-    canonicalUrl: `${siteConfig.url}/proyectos`,
+    title: 'Proyectos — Portafolio de Desarrollo Web Next.js',
+    description: 'Explora mis proyectos web y aplicaciones móviles. Soluciones a medida con Next.js, React y Kotlin para startups y empresas.',
+    canonicalUrl: '/proyectos',
+    keywords: ['proyectos web Next.js portfolio', 'ejemplos desarrollo react', 'apps móviles kotlin'],
   }),
   services: constructMetadata({
-    title: 'Servicios Web Freelance — Iván González',
-    description: 'Webs a medida, landing pages, mantenimiento y apps. Precios claros y plazos definidos.',
-    canonicalUrl: `${siteConfig.url}/servicios`,
+    title: 'Servicios de Desarrollo Web a Medida en Sevilla',
+    description: 'Servicios profesionales de desarrollo web: Landing pages, sitios web a medida y mantenimiento. Optimización SEO y rendimiento extremo en Sevilla.',
+    canonicalUrl: '/servicios',
+    keywords: ['desarrollo web a medida Sevilla', 'landing page profesional', 'mantenimiento web Sevilla'],
   }),
   contact: constructMetadata({
-    title: 'Contacto — Iván González',
-    description: 'Escríbeme para tu próximo proyecto web. Respondo en menos de 24 horas.',
-    canonicalUrl: `${siteConfig.url}/contacto`,
+    title: 'Contratar Desarrollador Web en Sevilla | Contacto',
+    description: '¿Tienes un proyecto en mente? Contacta con Iván González para contratar desarrollo web profesional en Sevilla. Presupuesto sin compromiso.',
+    canonicalUrl: '/contacto',
+    keywords: ['contratar desarrollador web Sevilla', 'presupuesto desarrollo web', 'contacto programador freelance'],
   }),
   legal: constructMetadata({
     title: 'Aviso Legal — Iván González',
-    description: 'Información legal y términos de uso del sitio web.',
-    canonicalUrl: `${siteConfig.url}/aviso-legal`,
+    description: 'Información legal sobre los servicios de desarrollo web de Iván González.',
+    canonicalUrl: '/aviso-legal',
     noIndex: true,
   }),
   privacy: constructMetadata({
-    title: 'Privacidad — Iván González',
-    description: 'Política de privacidad y protección de datos.',
-    canonicalUrl: `${siteConfig.url}/privacidad`,
+    title: 'Política de Privacidad — Iván González',
+    description: 'Detalles sobre la protección de datos y privacidad en este sitio web.',
+    canonicalUrl: '/privacidad',
     noIndex: true,
   }),
   cookies: constructMetadata({
-    title: 'Cookies — Iván González',
-    description: 'Política de cookies del sitio web.',
-    canonicalUrl: `${siteConfig.url}/cookies`,
+    title: 'Política de Cookies — Iván González',
+    description: 'Información sobre el uso de cookies en la plataforma de Iván González.',
+    canonicalUrl: '/cookies',
     noIndex: true,
   }),
 };
