@@ -60,17 +60,19 @@ export default function ProjectCard({ repo }: { repo: FormattedRepo }) {
                 <span>Ver Web</span>
               </a>
             )}
-            <a 
-              href={repo.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-white transition-colors"
-            >
-              <span>GitHub</span>
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            {!repo.slug && (
+              <a 
+                href={repo.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-white transition-colors"
+              >
+                <span>GitHub</span>
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            )}
           </div>
         </div>
       </div>
