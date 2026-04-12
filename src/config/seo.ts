@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 const siteConfig = {
   name: 'Iván González',
   url: 'https://www.ivangonzalez.cloud',
-  ogImage: 'https://www.ivangonzalez.cloud/og-image.jpg',
+  ogImage: 'https://www.ivangonzalez.cloud/og-image.png',
   description: 'Desarrollador Web Freelance en Sevilla especializado en Next.js, React y TypeScript. Creación de sitios web a medida, landing pages y soluciones digitales.',
   links: {
     linkedin: 'https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114',
