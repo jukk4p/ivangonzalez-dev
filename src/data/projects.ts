@@ -46,11 +46,16 @@ export const projects: Project[] = [
   {
     slug: "tumejortarifaluz-android",
     title: "TuMejorTarifaLuz Android",
-    description: "Aplicación nativa Android para el control de gasto eléctrico con OCR.",
-    longDescription: "Versión móvil nativa de la plataforma TuMejorTarifaLuz, desarrollada en Kotlin. Incluye funciones avanzadas como el escaneo de facturas mediante OCR y Gemini AI para extraer datos automáticamente y ofrecer recomendaciones de ahorro personalizadas.",
+    description: "Asistente energético nativo con IA para auditoría de facturas mediante OCR.",
+    longDescription: "Versión móvil nativa que traslada la potencia del comparador al ecosistema Android. Desarrollada íntegramente con Kotlin y Jetpack Compose, destaca por su integración con Gemini AI para la extracción inteligente de datos de facturas físicas. El proyecto demuestra el uso de arquitecturas modernas y el procesamiento de datos en movilidad para ofrecer asesoría energética de forma inmediata.",
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Coroutines"],
     githubUrl: "https://github.com/jukk4p/TuMejorTarifaLuz_Kotlin",
-    features: ["Escaneo de facturas con AI", "Notificaciones push en tiempo real", "Widgets de escritorio", "Modo oscuro nativo"],
+    features: [
+      "Auditoría Express vía IA: Procesamiento de facturas mediante Gemini AI para detección de ahorros.",
+      "UI Declarativa Moderna: Interfaz fluida desarrollada con Jetpack Compose y adaptada a Material 3.",
+      "Arquitectura MVVM: Implementación limpia y mantenible siguiendo los estándares modernos de Google.",
+      "Visualización de Mercado: Acceso directo a los precios del pool energético para consulta rápida en movilidad."
+    ],
     category: "mobile"
   },
   {
