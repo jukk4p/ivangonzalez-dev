@@ -126,12 +126,20 @@ export const getGitHubRepos = unstable_cache(
         }
       };
 
+      const PINNED_REPOS = [
+        'TuMejorTarifaLuz_Web',
+        'TuMejorTarifaLuz',
+        'AuraContable',
+        'CafeBarTiti'
+      ];
+
       return repos
         .filter(repo => !EXCLUDED_REPOS.includes(repo.name) && !repo.fork)
         .map((repo) => {
           const override = repoOverrides[repo.name] || {};
           return {
             id: repo.id,
+            name: repo.name, // Agregamos name para el sort de pins
             title: override.title || repo.name,
             desc: override.desc || repo.description || 'Sin descripción disponible',
             url: repo.html_url,
@@ -144,7 +152,22 @@ export const getGitHubRepos = unstable_cache(
             slug: override.slug
           };
         })
-        .sort((a, b) => b.stars - a.stars);
+        .sort((a, b) => {
+          const aIndex = PINNED_REPOS.indexOf(a.name);
+          const bIndex = PINNED_REPOS.indexOf(b.name);
+
+          // Si ambos están en PINNED_REPOS, ordenamos por su índice en la lista
+          if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+          
+          // Si solo 'a' está en la lista, va primero
+          if (aIndex !== -1) return -1;
+          
+          // Si solo 'b' está en la lista, va primero
+          if (bIndex !== -1) return 1;
+
+          // Si ninguno está en la lista, ordenamos por estrellas como antes
+          return b.stars - a.stars;
+        });
     } catch (error) {
       console.error('Error fetching GitHub repos:', error);
       return FALLBACK_PROJECTS;
