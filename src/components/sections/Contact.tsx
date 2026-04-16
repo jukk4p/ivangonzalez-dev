@@ -14,7 +14,7 @@ export default function Contact() {
     return null;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errorMsg = validate();
     if (errorMsg) {
@@ -23,17 +23,27 @@ export default function Contact() {
     }
 
     setStatus('loading');
-    setTimeout(() => {
-      // Chance of error for demonstration
-      if (Math.random() < 0.05) {
-        setStatus('error');
-      } else {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Error al enviar el mensaje');
       }
-      
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error:', error);
+      setStatus('error');
+      // No reseteamos el estado a 'idle' inmediatamente para que el usuario pueda ver el mail alternativo
+    }
   };
 
   return (
