@@ -15,22 +15,22 @@ export async function POST(request: Request) {
 
     // LOG DE DIAGNÓSTICO (Mirá esto en tu VPS)
     console.log('DEBUG COMPLETO - Datos de envío:', {
-      host: process.env.SMTP_HOST || 'pro1.mail.ovh.net',
+      host: process.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
       user: process.env.SMTP_USER,
       passSet: !!process.env.SMTP_PASS,
       passLength: process.env.SMTP_PASS?.length || 0
     });
 
-    // Configuración del transportador de SMTP para OVH Zimbra (Versión Pro / Login)
+    // Configuración del transportador de SMTP para OVH Zimbra (Cluster confirmado)
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'pro1.mail.ovh.net',
+      host: process.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
       port: 465,
       secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      authMethod: 'LOGIN', // Forzamos LOGIN en lugar de PLAIN
+      authMethod: 'LOGIN',
       tls: {
         rejectUnauthorized: false
       }
