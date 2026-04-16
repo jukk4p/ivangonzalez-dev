@@ -13,15 +13,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configuración del transportador de SMTP para OVH
+    // Configuración del transportador de SMTP para OVH (versión robusta 587)
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'ssl0.ovh.net',
-      port: Number(process.env.SMTP_PORT) || 465,
-      secure: true, // true para puerto 465, false para otros
+      port: 587, // Cambiamos a 587 que suele ser más estable en VPS
+      secure: false, // false para STARTTLS (puerto 587)
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        // Esto evita errores si el certificado de OVH tiene discrepancias con el hostname
+        rejectUnauthorized: false
+      }
     });
 
     // Configuración del correo
