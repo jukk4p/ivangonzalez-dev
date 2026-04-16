@@ -13,14 +13,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // LOG DE DIAGNÓSTICO (Mirá esto en tu VPS)
-    console.log('DEBUG COMPLETO - Datos de envío:', {
-      host: process.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
-      user: process.env.SMTP_USER,
-      passSet: !!process.env.SMTP_PASS,
-      passLength: process.env.SMTP_PASS?.length || 0
-    });
-
     // Configuración del transportador de SMTP para OVH Zimbra (Cluster confirmado)
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
@@ -36,22 +28,60 @@ export async function POST(request: Request) {
       }
     });
 
+    const now = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
+
     // Configuración del correo
     const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`, // Importante: OVH suele exigir que el 'from' sea el usuario autenticado
+      from: `"IvanGonzalez.cloud" <${process.env.SMTP_USER}>`,
       to: 'hola@ivangonzalez.cloud',
       replyTo: email,
-      subject: `Nuevo mensaje de contacto de ${name} (IvanGonzalezCloud)`,
-      text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
+      subject: `🚀 Nuevo contacto: ${name}`,
+      text: `Has recibido un nuevo mensaje de contacto.\n\nNombre: ${name}\nEmail: ${email}\nFecha: ${now}\n\nMensaje:\n${message}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-          <h2 style="color: #0f9d8c;">Nuevo mensaje de contacto</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-          <p><strong>Mensaje:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
-        </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            .container { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: auto; background-color: #0a0a0b; color: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1c; }
+            .header { background: linear-gradient(135deg, #0a0a0b 0%, #111112 100%); padding: 40px 20px; text-align: center; border-bottom: 1px solid #0f9d8c33; }
+            .header h1 { margin: 0; color: #0f9d8c; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
+            .content { padding: 40px; }
+            .field { margin-bottom: 25px; }
+            .label { color: #0f9d8c; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; margin-bottom: 8px; }
+            .value { font-size: 16px; color: #e2e2e2; line-height: 1.5; }
+            .message-box { background-color: #ffffff05; border: 1px solid #ffffff10; border-radius: 12px; padding: 20px; margin-top: 10px; font-style: italic; color: #d1d1d1; }
+            .footer { background-color: #050505; padding: 20px; text-align: center; color: #444; font-size: 12px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>IvanGonzalez.cloud</h1>
+            </div>
+            <div class="content">
+              <div class="field">
+                <div class="label">Remitente</div>
+                <div class="value">${name}</div>
+              </div>
+              <div class="field">
+                <div class="label">Email de respuesta</div>
+                <div class="value"><a href="mailto:${email}" style="color: #0f9d8c; text-decoration: none;">${email}</a></div>
+              </div>
+              <div class="field">
+                <div class="label">Fecha del mensaje</div>
+                <div class="value">${now}</div>
+              </div>
+              <div class="field">
+                <div class="label">Consulta Recibida</div>
+                <div class="message-box">${message.replace(/\n/g, '<br>')}</div>
+              </div>
+            </div>
+            <div class="footer">
+              &copy; ${new Date().getFullYear()} Ivan Gonzalez Cloud - Sistema de Contacto Automatizado
+            </div>
+          </div>
+        </body>
+        </html>
       `,
     };
 
