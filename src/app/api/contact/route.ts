@@ -13,10 +13,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configuración del transportador de SMTP para OVH (versión robusta 587)
+    // Configuración del transportador de SMTP para OVH Zimbra
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'ssl0.ovh.net',
-      port: 587, // Cambiamos a 587 que suele ser más estable en VPS
+      host: process.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
+      port: 587,
       secure: false, // false para STARTTLS (puerto 587)
       auth: {
         user: process.env.SMTP_USER,
