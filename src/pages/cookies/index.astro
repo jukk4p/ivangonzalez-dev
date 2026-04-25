@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CanvasBackground from '@/components/ui/CanvasBackground';
+import Navbar from '@/components/layout/Navbar.astro';
+import Footer from '@/components/layout/Footer.astro';
+---
+
+<Layout title="Política de Cookies">
+	<main class="relative min-h-screen">
+		<CanvasBackground client:load />
+		<Navbar />
+		
+		<section class="pt-32 pb-20 container mx-auto px-8 max-w-4xl">
+            <h1 class="text-4xl font-space-grotesk font-bold mb-12 text-white">Política de Cookies</h1>
+            <div class="prose prose-invert max-w-none text-text-muted space-y-8">
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4">¿Qué son las cookies?</h2>
+                    <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo.</p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4">Cookies utilizadas en este sitio</h2>
+                    <ul class="list-disc pl-6 space-y-4">
+                        <li><strong>Cookies técnicas:</strong> Son aquellas que permiten al usuario la navegación a través de una página web y la utilización de las diferentes opciones o servicios que en ella existan.</li>
+                        <li><strong>Cookies de análisis (Google Analytics):</strong> Son aquellas que nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado.</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+		<Footer />
+	</main>
+</Layout>

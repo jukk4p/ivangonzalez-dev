@@ -1,0 +1,58 @@
+---
+import Reveal from '@/components/ui/Reveal';
+
+const SERVICES = [
+  {
+    title: "Desarrollo Fullstack",
+    desc: "Aplicaciones web de alto rendimiento con arquitecturas modernas (Next.js, Astro, React). Enfoque en velocidad, SEO y experiencia de usuario premium.",
+    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+    tags: ["Frontend", "Backend", "APIs"]
+  },
+  {
+    title: "Arquitectura Cloud",
+    desc: "Diseño y despliegue de infraestructuras escalables en AWS, Vercel y Netlify. Implementación de CI/CD y automatización de flujos de trabajo.",
+    icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+    tags: ["AWS", "Vercel", "DevOps"]
+  },
+  {
+    title: "Consultoría Técnica",
+    desc: "Auditorías de código, optimización de performance y asesoramiento estratégico para startups y empresas que buscan escalar su producto digital.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    tags: ["Performance", "QA", "Strategy"]
+  }
+];
+---
+
+<section id="servicios" class="py-32 bg-white/[0.02]">
+  <div class="container mx-auto px-4">
+    <Reveal client:visible>
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-5xl font-display font-bold inline-block relative text-white">
+          Especialización Técnica
+          <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {SERVICES.map((service) => (
+          <div class="group p-10 rounded-2xl bg-bg-card border border-white/5 hover:border-accent/30 transition-all duration-500">
+            <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-8 group-hover:scale-110 transition-transform">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-4 text-white">{service.title}</h3>
+            <p class="text-text-muted leading-relaxed mb-8">{service.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {service.tags.map(tag => (
+                <span class="text-[10px] font-space-mono font-bold uppercase tracking-wider text-accent/70 px-2 py-1 bg-accent/5 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Reveal>
+  </div>
+</section>

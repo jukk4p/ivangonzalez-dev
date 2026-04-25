@@ -1,4 +1,35 @@
-import { Metadata } from 'next';
+export interface Metadata {
+  title: string;
+  description: string;
+  keywords?: string[];
+  authors?: { name: string }[];
+  creator?: string;
+  metadataBase?: URL;
+  alternates?: {
+    canonical: string;
+  };
+  openGraph?: {
+    type: string;
+    locale: string;
+    url: string;
+    title: string;
+    description: string;
+    siteName: string;
+    images: { url: string; width: number; height: number; alt: string }[];
+  };
+  twitter?: {
+    card: string;
+    title: string;
+    description: string;
+    images: string[];
+    creator: string;
+  };
+  robots?: {
+    index: boolean;
+    follow: boolean;
+  };
+}
+
 
 const siteConfig = {
   name: 'Iván González',

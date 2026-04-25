@@ -1,0 +1,48 @@
+---
+import Reveal from '@/components/ui/Reveal';
+---
+
+<section class="min-h-screen flex items-center justify-center pt-20">
+  <Reveal client:load>
+    <div class="text-center">
+      <div class="text-accent text-xs font-space-mono uppercase tracking-[0.3em] mb-12 flex flex-wrap justify-center gap-4">
+        <span>Desarrollador Web</span>
+        <span class="opacity-30">|</span>
+        <span>Typescript, Next.js, React & Astro</span>
+      </div>
+      
+      <h1 class="text-7xl md:text-8xl lg:text-[10rem] font-display font-bold tracking-tighter leading-none mb-10">
+        <span class="text-white">Iván</span> <span class="text-accent">González</span>
+      </h1>
+      
+      <p class="mt-8 text-xl md:text-2xl text-text-muted max-w-2xl mx-auto leading-relaxed">
+        Construyo webs y apps con <strong class="text-white">Astro, Next.js, React, Kotlin y Gemini AI</strong>. <br />
+        Proyectos limpios, bien documentados y entregados en plazo.
+      </p>
+
+      
+      <div class="mt-16 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4">
+        <a 
+          href="/contacto" 
+          class="w-full sm:w-auto max-w-[280px] mx-auto sm:mx-0 px-12 py-5 bg-accent text-bg-deep rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-accent-hover hover:-translate-y-1 transition-all shadow-[0_0_25px_rgba(15,157,140,0.4)] text-center"
+        >
+          Hablemos de tu idea
+        </a>
+        <a 
+          href="/servicios" 
+          class="w-full sm:w-auto max-w-[280px] mx-auto sm:mx-0 px-12 py-5 bg-white/5 border border-white/10 text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-white/10 hover:-translate-y-1 transition-all text-center"
+        >
+          Ver Servicios
+        </a>
+      </div>
+
+
+    </div>
+  </Reveal>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-20">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7-7v18" />
+    </svg>
+  </div>
+</section>

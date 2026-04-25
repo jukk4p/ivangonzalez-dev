@@ -1,7 +1,7 @@
-import { unstable_cache } from 'next/cache';
 import { GitHubRepo, FormattedRepo } from '@/types/github';
 
 const FALLBACK_PROJECTS: FormattedRepo[] = [
+  // ... (keeping existing fallbacks)
   {
     id: 1,
     title: 'TuMejorTarifaLuz',
@@ -40,8 +40,7 @@ const FALLBACK_PROJECTS: FormattedRepo[] = [
   }
 ];
 
-export const getGitHubRepos = unstable_cache(
-  async (): Promise<FormattedRepo[]> => {
+export async function getGitHubRepos(): Promise<FormattedRepo[]> {
     const GITHUB_USERNAME = 'jukk4p';
     const endpoint = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`;
 
@@ -49,8 +48,7 @@ export const getGitHubRepos = unstable_cache(
       const response = await fetch(endpoint, {
         headers: {
           Accept: 'application/vnd.github.v3+json',
-        },
-        next: { revalidate: 3600 } // ISR: Revalida cada hora
+        }
       });
 
       if (!response.ok) {
@@ -69,15 +67,8 @@ export const getGitHubRepos = unstable_cache(
         'ivangonzalez.cloud'
       ];
 
-      // Custom data for better mapping (optional override)
       const repoOverrides: Record<string, Partial<FormattedRepo>> = {
         'TuMejorTarifaLuz': { 
-          title: 'TuMejorTarifaLuz',
-          desc: 'Solución enfocada en el análisis de facturas eléctricas. Permite comparar precios entre las principales comercializadoras para optimizar el ahorro doméstico.',
-          liveUrl: 'https://tumejortarifaluz.es',
-          slug: 'tumejortarifaluz'
-        },
-        'TuMejorTarifaLuz_Web': { 
           title: 'TuMejorTarifaLuz',
           desc: 'Solución enfocada en el análisis de facturas eléctricas. Permite comparar precios entre las principales comercializadoras para optimizar el ahorro doméstico.',
           liveUrl: 'https://tumejortarifaluz.es',
@@ -105,33 +96,22 @@ export const getGitHubRepos = unstable_cache(
           liveUrl: 'https://auracontable.ivangonzalez.cloud',
           slug: 'auracontable'
         },
-        'ConhdeHelena': {
-          title: 'ConhdeHelena',
-          desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
-          liveUrl: 'https://conhdehelena.es',
-          slug: 'con-h-de-helena'
-        },
         'ConHdeHelena': {
-          title: 'ConhdeHelena',
+          title: 'ConHdeHelena',
           desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
           liveUrl: 'https://conhdehelena.es',
           slug: 'con-h-de-helena'
-        },
-        'OroManager': {
-          desc: 'Aplicación interna para la gestión integral de inventarios y tasaciones en joyerías de lujo. Seguridad avanzada y trazabilidad de piezas.'
-        },
-        'ivangonzalez.cloud': {
-          title: 'Mi Portfolio Personal',
-          desc: 'Arquitectura moderna con Next.js 16 y Tailwind 4. Implementa fetching dinámico de GitHub, optimización SEO avanzada y diseño UI/UX premium.'
         }
       };
 
+
       const PINNED_REPOS = [
-        'TuMejorTarifaLuz_Web',
         'TuMejorTarifaLuz',
         'AuraContable',
-        'CafeBarTiti'
+        'CafeBarTiti',
+        'HGNPinturas'
       ];
+
 
       return repos
         .filter(repo => !EXCLUDED_REPOS.includes(repo.name) && !repo.fork)
@@ -139,7 +119,7 @@ export const getGitHubRepos = unstable_cache(
           const override = repoOverrides[repo.name] || {};
           return {
             id: repo.id,
-            name: repo.name, // Agregamos name para el sort de pins
+            name: repo.name,
             title: override.title || repo.name,
             desc: override.desc || repo.description || 'Sin descripción disponible',
             url: repo.html_url,
@@ -156,23 +136,14 @@ export const getGitHubRepos = unstable_cache(
           const aIndex = PINNED_REPOS.indexOf(a.name);
           const bIndex = PINNED_REPOS.indexOf(b.name);
 
-          // Si ambos están en PINNED_REPOS, ordenamos por su índice en la lista
           if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-          
-          // Si solo 'a' está en la lista, va primero
           if (aIndex !== -1) return -1;
-          
-          // Si solo 'b' está en la lista, va primero
           if (bIndex !== -1) return 1;
-
-          // Si ninguno está en la lista, ordenamos por estrellas como antes
           return b.stars - a.stars;
         });
     } catch (error) {
       console.error('Error fetching GitHub repos:', error);
       return FALLBACK_PROJECTS;
     }
-  },
-  ['github-repos'],
-  { revalidate: 3600, tags: ['github-repos'] }
-);
+}
+

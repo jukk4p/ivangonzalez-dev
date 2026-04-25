@@ -1,0 +1,67 @@
+---
+const NAV_LINKS = [
+  { href: '/proyectos', label: 'Proyectos' },
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/sobre-mi', label: 'Sobre mí' },
+  { href: '/contacto', label: 'Contacto' },
+];
+
+---
+
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-bg-deep font-bold text-lg transition-transform duration-500 group-hover:rotate-12">
+        IG
+      </div>
+      <div class="text-xl font-display font-black tracking-tighter text-white">
+        IVAN <span class="text-accent group-hover:text-white transition-colors">GONZALEZ</span>
+      </div>
+    </a>
+
+
+    <nav class="hidden md:flex items-center gap-8">
+      {NAV_LINKS.map(link => (
+        <a 
+          href={link.href} 
+          class="text-xs font-bold uppercase tracking-widest text-text-muted hover:text-accent transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href="/contacto" 
+        class="px-6 py-2 bg-accent/10 border border-accent/20 text-accent rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-bg-deep transition-all"
+      >
+        Hablemos
+      </a>
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden text-white" aria-label="Abrir menú">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-bg-deep/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+      navbar?.classList.remove('py-6');
+    } else {
+      navbar?.classList.remove('bg-bg-deep/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+      navbar?.classList.add('py-6');
+    }
+  });
+
+
+  // Simple mobile menu toggle logic can be added here
+  const menuToggle = document.getElementById('menu-toggle');
+  menuToggle?.addEventListener('click', () => {
+      // For simplicity, we can just alert or implement a basic drawer
+      alert('Menú móvil en desarrollo. Usa los links directos por ahora.');
+  });
+</script>

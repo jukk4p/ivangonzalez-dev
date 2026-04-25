@@ -1,0 +1,56 @@
+---
+import { getGitHubRepos } from '@/lib/github';
+import ProjectCard from './ProjectCard';
+import Reveal from '@/components/ui/Reveal';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const repos = await getGitHubRepos();
+const displayRepos = limit ? repos.slice(0, limit) : repos;
+---
+
+<section 
+  id="proyectos" 
+  class="py-32 container mx-auto px-4"
+>
+  <Reveal client:visible>
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-display font-bold inline-block relative text-white">
+        {limit ? 'Proyectos Destacados' : 'Todos los Proyectos'}
+        <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
+      </h2>
+      <p class="mt-8 text-text-muted max-w-2xl mx-auto text-lg">
+        {limit 
+          ? 'Una selección de mis trabajos más impactantes extraídos de GitHub.' 
+          : 'Explora mi ecosistema completo de soluciones digitales y repositorios privados.'}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {displayRepos.map((repo, index) => (
+        <div 
+          class={index === 3 ? 'hidden md:block lg:hidden' : ''}
+        >
+          <ProjectCard repo={repo} />
+        </div>
+      ))}
+    </div>
+
+    {limit && (
+      <div class="mt-20 text-center">
+          <a 
+            href="/proyectos" 
+            class="inline-flex items-center gap-3 px-8 py-3 bg-white/5 border border-white/10 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent/10 hover:border-accent/50 transition-all group text-white"
+          >
+            <span>Ver todos los proyectos</span>
+            <svg class="w-4 h-4 group-hover:rotate-45 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+      </div>
+    )}
+  </Reveal>
+</section>

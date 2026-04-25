@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CanvasBackground from '@/components/ui/CanvasBackground';
+import Navbar from '@/components/layout/Navbar.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Portfolio from '@/components/sections/Portfolio.astro';
+import Services from '@/components/sections/Services.astro';
+import Contact from '@/components/sections/Contact';
+import Footer from '@/components/layout/Footer.astro';
+
+export const prerender = true;
+---
+
+
+<Layout>
+	<main class="relative min-h-screen">
+		<CanvasBackground client:idle />
+		<Navbar />
+		
+		<Hero />
+		
+        <Portfolio limit={4} />
+
+		<Services />
+		
+        <Contact client:visible />
+
+		<Footer />
+	</main>
+</Layout>

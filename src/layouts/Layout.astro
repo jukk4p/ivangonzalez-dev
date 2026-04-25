@@ -1,0 +1,77 @@
+---
+import '../styles/globals.css';
+import { SEO_DATA } from '@/config/seo';
+import CookieBanner from '@/components/ui/CookieBanner';
+
+interface Props {
+	title?: string;
+    description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SEO_DATA.home;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{seo.title}</title>
+        <meta name="description" content={description || seo.description} />
+        
+        <!-- Google Fonts: Carga Asíncrona Pro para 95+ Score -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Inter:wght@400;600&family=Space+Mono:wght@400;700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;800&family=Inter:wght@400;600&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'" />
+        
+        <!-- Google Tag Manager: Carga diferida extendida -->
+        <script is:inline>
+            function loadGTM() {
+                if (window.gtmLoaded) return;
+                window.gtmLoaded = true;
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-525XZN8J');
+            }
+
+            // Cargamos GTM con 5s de delay o al primer scroll/movimiento
+            const gtmTimeout = setTimeout(loadGTM, 5000);
+            function triggerGTM() {
+                loadGTM();
+                clearTimeout(gtmTimeout);
+                window.removeEventListener('scroll', triggerGTM);
+                window.removeEventListener('mousemove', triggerGTM);
+                window.removeEventListener('touchstart', triggerGTM);
+            }
+            window.addEventListener('scroll', triggerGTM, { passive: true });
+            window.addEventListener('mousemove', triggerGTM, { passive: true });
+            window.addEventListener('touchstart', triggerGTM, { passive: true });
+        </script>
+
+
+	</head>
+	<body class="font-inter antialiased bg-bg-deep text-text-main">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe 
+              src="https://www.googletagmanager.com/ns.html?id=GTM-525XZN8J"
+              height="0" 
+              width="0" 
+              style="display:none;visibility:hidden"
+            ></iframe>
+        </noscript>
+        
+		<slot />
+        
+        <CookieBanner client:idle />
+	</body>
+</html>
+
+

@@ -10,11 +10,12 @@
   --color-neon-violet: #9B5DE5;
   --color-glass: rgba(15, 15, 26, 0.7);
   
-  --font-inter: var(--font-inter), sans-serif;
-  --font-display: var(--font-bricolage), var(--font-space-grotesk), sans-serif;
-  --font-space-grotesk: var(--font-space-grotesk), sans-serif;
-  --font-space-mono: var(--font-space-mono), monospace;
+  --font-inter: "Inter", sans-serif;
+  --font-display: "Bricolage Grotesque", "Space Grotesk", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-space-mono: "Space Mono", monospace;
 }
+
 
 :root {
   --bg-deep: #080810;
@@ -56,4 +57,15 @@ body {
 ::selection {
   background-color: var(--accent);
   color: var(--bg-deep);
+}
+
+/* Optimization for long sections */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+/* Specific optimization for the first section to avoid LCP delay */
+section:first-of-type, header {
+  content-visibility: visible;
 }

@@ -82,7 +82,8 @@ export default function CanvasBackground() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       particles = [];
-      const particleCount = window.innerWidth < 768 ? 60 : 120; // Fewer particles on mobile
+      const particleCount = window.innerWidth < 768 ? 30 : 120; // Reducimos aún más en móvil para el 90+
+
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }
