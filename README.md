@@ -1,52 +1,51 @@
-# Iván González | Senior Web Developer & Cloud Architect
+# Iván González | Desarrollador Web
 
-Personal portfolio built with **Astro 6**, focusing on extreme performance, clean architecture, and premium design.
+Mi portfolio personal construido con **Astro 6**. Un proyecto donde estoy aplicando y aprendiendo tecnologías modernas para lograr el máximo rendimiento y diseño.
 
-## 🚀 Tech Stack
+## 🚀 Tecnologías que estoy usando
 
-- **Framework**: [Astro 6](https://astro.build/) (Hybrid Rendering)
-- **UI Library**: [React 19](https://react.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **State & Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Backend**: [Node.js](https://nodejs.org/) (SSR Adapter)
-- **Data**: GitHub API Integration for real-time project tracking.
-- **Deployment**: [Coolify](https://coolify.io/)
+- **Framework**: [Astro 6](https://astro.build/) (Aprendiendo Rendering Híbrido)
+- **UI**: [React 19](https://react.dev/)
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
+- **Backend**: [Node.js](https://nodejs.org/) (Para el formulario de contacto)
+- **Despliegue**: [Coolify](https://coolify.io/)
 
-## ⚡ Performance Highlights
+## ⚡ Objetivos del Proyecto
 
-- **Lighthouse Score**: Targeted 95+ in all categories.
-- **Optimized Path**: Deferred third-party scripts (GTM), asynchronous font loading, and hybrid pre-rendering.
-- **Design**: Premium aesthetics with custom glassmorphism and canvas-based particle backgrounds.
+- **Performance**: Lograr un puntaje de 90+ en Lighthouse para entender las mejores prácticas de optimización.
+- **Clean Code**: Aprender a estructurar proyectos de forma escalable y profesional.
+- **Diseño**: Implementar una estética moderna (Glassmorphism) de forma eficiente.
 
-## 🛠️ Project Structure
+## 🛠️ Estructura del Proyecto
 
 ```text
 /
-├── public/          # Static assets (Favicons, OG Images)
+├── public/          # Recursos estáticos
 ├── src/
-│   ├── components/  # Atomic components (UI, Layout, Sections)
-│   ├── layouts/     # Base HTML structure and SEO
-│   ├── lib/         # Utility functions and API clients
-│   ├── pages/       # File-based routing (Astro)
-│   ├── styles/      # Global CSS and Tailwind directives
-│   └── types/       # TypeScript definitions
-└── astro.config.mjs # Framework configuration
+│   ├── components/  # Componentes (UI, Layout, Secciones)
+│   ├── layouts/     # Estructura base HTML y SEO
+│   ├── lib/         # Funciones y cliente de API GitHub
+│   ├── pages/       # Rutas del sitio
+│   ├── styles/      # CSS Global y Tailwind
+│   └── types/       # Definiciones de TypeScript
+└── astro.config.mjs # Configuración del framework
 ```
 
-## 🧞 Commands
+## 🧞 Comandos útiles
 
-| Command | Action |
+| Comando | Acción |
 | :--- | :--- |
-| `npm install` | Installs dependencies |
-| `npm run dev` | Starts local dev server |
-| `npm run build` | Builds for production (SSR) |
-| `npm run preview` | Previews the build locally |
+| `npm install` | Instala las dependencias |
+| `npm run dev` | Arranca el servidor de desarrollo |
+| `npm run build` | Genera la versión de producción |
+| `npm run preview` | Prueba la versión de producción localmente |
 
-## 📧 Contact
+## 📧 Contacto
 
-- **Website**: [ivangonzalez.cloud](https://ivangonzalez.cloud)
+- **Web**: [ivangonzalez.cloud](https://ivangonzalez.cloud)
 - **Email**: [hola@ivangonzalez.cloud](mailto:hola@ivangonzalez.cloud)
 
 ---
 
-Built with ❤️ and focus on **Performance First**.
+Hecho con ganas de aprender y mejorar cada día. 💪✨
