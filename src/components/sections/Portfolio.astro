@@ -30,7 +30,7 @@ const displayRepos = limit ? repos.slice(0, limit) : repos;
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {displayRepos.map((repo, index) => (
       <div 
-        class={`project-card-reveal opacity-0 translate-y-12 ${index === 3 ? 'hidden md:block lg:hidden' : ''}`}
+        class={`project-card-reveal opacity-0 translate-y-6 ${index === 3 ? 'hidden md:block lg:hidden' : ''}`}
       >
         <ProjectCard repo={repo} />
       </div>

@@ -48,28 +48,26 @@
       const words = title.querySelectorAll('span');
       words.forEach(word => {
         const chars = word.textContent!.split('');
-        word.innerHTML = chars.map(char => `<span class="char inline-block translate-y-full opacity-0">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+        word.innerHTML = chars.map(char => `<span class="char inline-block translate-y-8 opacity-0">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
       });
     }
 
     // 2. Entrance Timeline
-    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     tl.to('#hero-subtitle', { opacity: 1, y: 0, duration: 1.2 })
       .to('.char', { 
         y: 0, 
         opacity: 1, 
-        stagger: 0.03, 
-        duration: 1, 
-        ease: "back.out(1.7)" 
+        stagger: 0.02, 
+        duration: 1.2,
       }, "-=0.8")
-      .to('#hero-description', { opacity: 1, duration: 1.5, y: -10 }, "-=0.6")
+      .to('#hero-description', { opacity: 1, duration: 1.2, y: 0 }, "-=0.8")
       .to('.hero-btn-primary, .hero-btn-secondary', { 
         opacity: 1, 
         scale: 1, 
         stagger: 0.1, 
-        duration: 0.8, 
-        ease: "elastic.out(1, 0.75)" 
+        duration: 1, 
       }, "-=1");
 
     // 3. Magnetic Button Effect
@@ -82,8 +80,8 @@
         const y = e.clientY - (top + height / 2);
         
         gsap.to(btn, {
-          x: x * 0.3,
-          y: y * 0.3,
+          x: x * 0.15,
+          y: y * 0.15,
           duration: 0.6,
           ease: "power2.out"
         });
@@ -93,8 +91,8 @@
         gsap.to(btn, {
           x: 0,
           y: 0,
-          duration: 0.8,
-          ease: "elastic.out(1, 0.3)"
+          duration: 1,
+          ease: "power3.out"
         });
       });
     });
