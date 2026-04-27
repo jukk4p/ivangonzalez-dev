@@ -23,6 +23,39 @@ const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SE
 		<title>{seo.title}</title>
         <meta name="description" content={description || seo.description} />
         
+        {/* Canonical URL */}
+        {seo.alternates?.canonical && <link rel="canonical" href={seo.alternates.canonical} />}
+        
+        {/* Robots */}
+        {seo.robots && <meta name="robots" content={`${seo.robots.index ? 'index' : 'noindex'}, ${seo.robots.follow ? 'follow' : 'nofollow'}`} />}
+
+        {/* Open Graph */}
+        {seo.openGraph && (
+            <>
+                <meta property="og:type" content={seo.openGraph.type} />
+                <meta property="og:locale" content={seo.openGraph.locale} />
+                <meta property="og:url" content={seo.openGraph.url} />
+                <meta property="og:title" content={seo.openGraph.title} />
+                <meta property="og:description" content={seo.openGraph.description} />
+                <meta property="og:site_name" content={seo.openGraph.siteName} />
+                {seo.openGraph.images.map(image => (
+                    <meta property="og:image" content={image.url} />
+                ))}
+            </>
+        )}
+
+        {/* Twitter */}
+        {seo.twitter && (
+            <>
+                <meta name="twitter:card" content={seo.twitter.card} />
+                <meta name="twitter:title" content={seo.twitter.title} />
+                <meta name="twitter:description" content={seo.twitter.description} />
+                {seo.twitter.images.map(image => (
+                    <meta name="twitter:image" content={image} />
+                ))}
+                <meta name="twitter:creator" content={seo.twitter.creator} />
+            </>
+        )}
         <!-- Google Fonts: Carga Asíncrona Pro para 95+ Score -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

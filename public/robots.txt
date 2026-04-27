@@ -4,4 +4,4 @@ Disallow: /_next/
 Disallow: /api/
 Disallow: /private/
 
-Sitemap: https://www.ivangonzalez.cloud/sitemap.xml
+Sitemap: https://www.ivangonzalez.cloud/sitemap-index.xml

@@ -90,5 +90,21 @@ export const projects: Project[] = [
     liveUrl: "https://hgnpinturas.ivangonzalez.cloud",
     features: ["Portafolio de proyectos", "Gestión de presupuestos", "Optimización SEO local", "Interfaz administrativa"],
     category: "web"
+  },
+  {
+    slug: "pulso-odds",
+    title: "PulsoOdds - Sports Analytics",
+    description: "Plataforma avanzada de análisis de apuestas deportivas y seguimiento de cuotas en tiempo real.",
+    longDescription: "Sistema integral de inteligencia deportiva que combina el análisis de datos masivos con una interfaz de usuario de alto rendimiento. PulsoOdds integra un pipeline de automatización robusto con n8n, scraping avanzado de fuentes como Flashscore y una base de datos distribuida en Supabase para ofrecer cuotas, estadísticas y seguimiento de picks en tiempo real con precisión milimétrica.",
+    tech: ["Next.js 16", "Supabase", "n8n", "TypeScript", "Tailwind CSS 4"],
+    githubUrl: "https://github.com/jukk4p/PulsoOdds",
+    liveUrl: "https://pulsoodds.ivangonzalez.cloud/",
+    features: [
+      "Pipeline de Datos Automatizado: Sincronización batch de cuotas mediante n8n.",
+      "Diccionario Maestro de Equipos: Sistema de mapeo inteligente para normalizar nombres y logos de múltiples fuentes.",
+      "Cálculo de ROI y Yield en Tiempo Real: Dashboard estadístico para el seguimiento profesional de beneficios.",
+      "Arquitectura Serverless: Escalabilidad total con Next.js y Supabase."
+    ],
+    category: "web"
   }
 ];

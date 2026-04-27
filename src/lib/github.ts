@@ -101,12 +101,19 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
           desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
           liveUrl: 'https://conhdehelena.es',
           slug: 'con-h-de-helena'
+        },
+        'PulsoOdds': {
+          title: 'PulsoOdds - Sports Analytics',
+          desc: 'Plataforma avanzada de análisis de pronósticos deportivos y seguimiento de cuotas en tiempo real. Integra un pipeline de datos con n8n y Supabase para el procesamiento de picks y estadísticas.',
+          liveUrl: 'https://pulsoodds.ivangonzalez.cloud/',
+          slug: 'pulso-odds'
         }
       };
 
 
       const PINNED_REPOS = [
         'TuMejorTarifaLuz',
+        'PulsoOdds',
         'AuraContable',
         'CafeBarTiti',
         'HGNPinturas'
