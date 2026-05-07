@@ -1,7 +1,6 @@
 import { GitHubRepo, FormattedRepo } from '@/types/github';
 
 const FALLBACK_PROJECTS: FormattedRepo[] = [
-  // ... (keeping existing fallbacks)
   {
     id: 1,
     title: 'TuMejorTarifaLuz',
@@ -12,31 +11,92 @@ const FALLBACK_PROJECTS: FormattedRepo[] = [
     language: 'TypeScript',
     topics: ['Next.js', 'Firebase', 'SEO'],
     stars: 10,
-    isFork: false
+    isFork: false,
+    name: 'TuMejorTarifaLuz'
   },
   {
     id: 2,
-    title: 'TuMejorTarifaLuz (Android)',
-    desc: 'Aplicación nativa para comparar tarifas eléctricas. Desarrollada con Kotlin y Jetpack Compose.',
-    url: 'https://github.com/jukk4p/TuMejorTarifaLuz_Kotlin',
-    liveUrl: null,
+    title: 'PulsoOdds - Sports Analytics',
+    desc: 'Plataforma avanzada de análisis de pronósticos deportivos y seguimiento de cuotas en tiempo real.',
+    url: 'https://github.com/jukk4p/PulsoOdds',
+    liveUrl: 'https://pulsoodds.ivangonzalez.cloud/',
     updated_at: new Date().toISOString(),
-    language: 'Kotlin',
-    topics: ['Android', 'Jetpack Compose', 'MVVM'],
-    stars: 8,
-    isFork: false
+    language: 'TypeScript',
+    topics: ['Next.js', 'Supabase', 'Analytics'],
+    stars: 15,
+    isFork: false,
+    name: 'PulsoOdds',
+    slug: 'pulso-odds'
   },
   {
     id: 3,
     title: 'AuraContable',
-    desc: 'Gestión financiera simplificada con reportes visuales claros y control de ingresos/gastos.',
+    desc: 'Software de gestión contable para autónomos y PYMES. Dashboard financiero con métricas clave.',
     url: 'https://github.com/jukk4p/AuraContable',
     liveUrl: 'https://auracontable.ivangonzalez.cloud/',
     updated_at: new Date().toISOString(),
     language: 'TypeScript',
     topics: ['React', 'Tailwind CSS', 'Finance'],
     stars: 5,
-    isFork: false
+    isFork: false,
+    name: 'AuraContable',
+    slug: 'auracontable'
+  },
+  {
+    id: 4,
+    title: 'Cafe Bar Titi - Hostelería Digital',
+    desc: 'Solución web integral para el sector de la hostelería con carta interactiva y gestión de alérgenos.',
+    url: 'https://github.com/jukk4p/CafeBarTiti',
+    liveUrl: 'https://bartiti.ivangonzalez.cloud',
+    updated_at: new Date().toISOString(),
+    language: 'TypeScript',
+    topics: ['Next.js', 'Tailwind', 'PWA'],
+    stars: 7,
+    isFork: false,
+    name: 'CafeBarTiti',
+    slug: 'cafe-bar-titi'
+  },
+  {
+    id: 5,
+    title: 'La Abacería - Gourmet Experience',
+    desc: 'Plataforma digital para el sector gourmet que fusiona tradición y modernidad.',
+    url: 'https://github.com/jukk4p/laabaceria',
+    liveUrl: 'https://laabaceria.ivangonzalez.cloud/',
+    updated_at: new Date().toISOString(),
+    language: 'TypeScript',
+    topics: ['Astro', 'GSAP', 'Tailwind'],
+    stars: 8,
+    isFork: false,
+    name: 'laabaceria',
+    slug: 'la-abaceria'
+  },
+  {
+    id: 6,
+    title: 'Espacio Reiki - Bienestar Holístico',
+    desc: 'Sitio web dedicado a la salud y el bienestar con un diseño sereno y minimalista.',
+    url: 'https://github.com/jukk4p/EspacioReiki',
+    liveUrl: 'https://espacioreiki.ivangonzalez.cloud/',
+    updated_at: new Date().toISOString(),
+    language: 'TypeScript',
+    topics: ['Next.js', 'Framer Motion', 'Wellness'],
+    stars: 4,
+    isFork: false,
+    name: 'EspacioReiki',
+    slug: 'espacio-reiki'
+  },
+  {
+    id: 7,
+    title: 'HGNPinturas - Pintura Profesional',
+    desc: 'Solución digital para el sector de la pintura y reformas integrales.',
+    url: 'https://github.com/jukk4p/HGNPinturas',
+    liveUrl: 'https://hgnpinturas.ivangonzalez.cloud',
+    updated_at: new Date().toISOString(),
+    language: 'TypeScript',
+    topics: ['Next.js', 'Tailwind', 'SEO'],
+    stars: 6,
+    isFork: false,
+    name: 'HGNPinturas',
+    slug: 'hgn-pinturas'
   }
 ];
 
@@ -60,7 +120,6 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
 
       const EXCLUDED_REPOS = [
         'GestordeTareasDAM',
-        'EspacioReiki',
         'OroManager',
         'ivangonzalezufano',
         'ivangonzalez-dev',
@@ -97,7 +156,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
           slug: 'auracontable'
         },
         'ConHdeHelena': {
-          title: 'ConHdeHelena',
+          title: 'ConhdeHelena',
           desc: 'Página web completa dedicada a la exposición de regalos personalizados y artículos exclusivos. Un espacio digital de alta calidad diseñado para mostrar el diseño y la versatilidad de cada obra.',
           liveUrl: 'https://conhdehelena.es',
           slug: 'con-h-de-helena'
@@ -107,23 +166,44 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
           desc: 'Plataforma avanzada de análisis de pronósticos deportivos y seguimiento de cuotas en tiempo real. Integra un pipeline de datos con n8n y Supabase para el procesamiento de picks y estadísticas.',
           liveUrl: 'https://pulsoodds.ivangonzalez.cloud/',
           slug: 'pulso-odds'
+        },
+        'laabaceria': {
+          title: 'La Abacería - Gourmet Experience',
+          desc: 'Plataforma digital para el sector gourmet. Un espacio que fusiona la tradición de la abacería clásica con una experiencia de usuario moderna y elegante, optimizada para la visualización de productos selectos.',
+          liveUrl: 'https://laabaceria.ivangonzalez.cloud/',
+          slug: 'la-abaceria'
+        },
+        'EspacioReiki': {
+          title: 'Espacio Reiki - Bienestar Holístico',
+          desc: 'Sitio web dedicado a la salud y el bienestar. Un diseño limpio y sereno que refleja la armonía de la práctica del Reiki, facilitando el acceso a información sobre terapias y formación.',
+          liveUrl: 'https://espacioreiki.ivangonzalez.cloud/',
+          slug: 'espacio-reiki'
         }
       };
 
 
       const PINNED_REPOS = [
         'TuMejorTarifaLuz',
-        'PulsoOdds',
         'AuraContable',
         'CafeBarTiti',
+        'PulsoOdds',
+        'laabaceria',
+        'EspacioReiki',
         'HGNPinturas'
       ];
 
 
-      return repos
-        .filter(repo => !EXCLUDED_REPOS.includes(repo.name) && !repo.fork)
+      const finalRepos = repos
+        .filter(repo => {
+          const isExcluded = EXCLUDED_REPOS.some(ex => ex.toLowerCase() === repo.name.toLowerCase());
+          const isPinned = PINNED_REPOS.some(p => p.toLowerCase() === repo.name.toLowerCase());
+          return !isExcluded && (!repo.fork || isPinned);
+        })
         .map((repo) => {
-          const override = repoOverrides[repo.name] || {};
+          const overrideKey = Object.keys(repoOverrides).find(
+            key => key.toLowerCase() === repo.name.toLowerCase()
+          );
+          const override = overrideKey ? repoOverrides[overrideKey] : {};
           return {
             id: repo.id,
             name: repo.name,
@@ -138,10 +218,22 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
             isFork: repo.fork,
             slug: override.slug
           };
-        })
-        .sort((a, b) => {
-          const aIndex = PINNED_REPOS.indexOf(a.name);
-          const bIndex = PINNED_REPOS.indexOf(b.name);
+        });
+
+      // Inyectar proyectos pineados que falten (ej. si son privados en GitHub)
+      PINNED_REPOS.forEach(pinnedName => {
+        const alreadyExists = finalRepos.some(r => r.name?.toLowerCase() === pinnedName.toLowerCase());
+        if (!alreadyExists) {
+          const fallback = FALLBACK_PROJECTS.find(f => f.name?.toLowerCase() === pinnedName.toLowerCase());
+          if (fallback) {
+            finalRepos.push(fallback);
+          }
+        }
+      });
+
+      return finalRepos.sort((a, b) => {
+          const aIndex = PINNED_REPOS.findIndex(p => p.toLowerCase() === (a.name || '').toLowerCase());
+          const bIndex = PINNED_REPOS.findIndex(p => p.toLowerCase() === (b.name || '').toLowerCase());
 
           if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
           if (aIndex !== -1) return -1;

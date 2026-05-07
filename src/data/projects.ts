@@ -106,5 +106,37 @@ export const projects: Project[] = [
       "Arquitectura Serverless: Escalabilidad total con Next.js y Supabase."
     ],
     category: "web"
+  },
+  {
+    slug: "la-abaceria",
+    title: "La Abacería - Gourmet Experience",
+    description: "Plataforma digital para el sector gourmet que fusiona tradición y modernidad.",
+    longDescription: "Un proyecto que redefine la presencia digital de los comercios tradicionales. La Abacería combina una estética clásica y refinada con tecnologías modernas para ofrecer un escaparate digital de productos gourmet. El foco principal ha sido la experiencia de usuario visual, utilizando transiciones suaves y una tipografía elegante que evoca la calidad de los productos artesanales.",
+    tech: ["Astro", "Tailwind CSS", "GSAP", "TypeScript"],
+    githubUrl: "https://github.com/jukk4p/laabaceria",
+    liveUrl: "https://laabaceria.ivangonzalez.cloud/",
+    features: [
+      "Diseño Editorial Premium: Estética cuidada inspirada en revistas de alta gastronomía.",
+      "Animaciones Fluídas: Integración de GSAP para una navegación elegante y orgánica.",
+      "Optimización de Catálogo: Gestión eficiente de imágenes de alta resolución para productos gourmet.",
+      "Arquitectura Escalable: Construido sobre Astro para un rendimiento y SEO excepcionales."
+    ],
+    category: "web"
+  },
+  {
+    slug: "espacio-reiki",
+    title: "Espacio Reiki - Bienestar Holístico",
+    description: "Sitio web para centro de terapias naturales enfocado en la serenidad.",
+    longDescription: "Desarrollo de una plataforma digital para la promoción de servicios de bienestar y formación en Reiki. El diseño se caracteriza por una paleta de colores suaves y una arquitectura de información que prioriza la calma y la facilidad de navegación, permitiendo a los usuarios conectar con la filosofía del centro de forma orgánica.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    githubUrl: "https://github.com/jukk4p/EspacioReiki",
+    liveUrl: "https://espacioreiki.ivangonzalez.cloud/",
+    features: [
+      "Interfaz Minimalista: Diseño enfocado en la experiencia de usuario relajante.",
+      "Gestión de Terapias: Catálogo detallado de servicios y técnicas holísticas.",
+      "Optimización de Carga: Rendimiento superior para una navegación sin fricciones.",
+      "Responsive Design: Experiencia fluida en dispositivos móviles y escritorio."
+    ],
+    category: "web"
   }
 ];
