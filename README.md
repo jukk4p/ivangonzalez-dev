@@ -1,82 +1,93 @@
-# 🌌 Iván González | Cloud Architect & Fullstack Developer
-
-Welcome to my digital space. This is my personal portfolio, built from the ground up utilizing **Astro 6** and **Tailwind CSS v4** to showcase high-performance engineering, clean code architecture, and premium user experiences.
-
----
+# 🌌 Iván González | Arquitecto Cloud & Desarrollador Fullstack
 
 <div align="center">
-  <h3>🚀 Fast • 📱 Responsive • 🎨 Fluid Animations • 🔍 SEO-Optimized</h3>
-  <p>Lighthouse Score: <b>98+ (Performance, SEO, Best Practices)</b></p>
+  
+  [![Astro](https://img.shields.io/badge/Astro-v6.0-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4.0-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+  [![React](https://img.shields.io/badge/React-v19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+  [![GSAP](https://img.shields.io/badge/GSAP-v3.15-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://gsap.com/)
+
+  <h3>🚀 Alto Rendimiento • 📱 Responsive • 🎨 Animaciones Fluidas • 🔍 SEO Técnico</h3>
+  
+  <p>Lighthouse Score: <b>98+ (Rendimiento, SEO, Buenas Prácticas)</b></p>
+  
+  ---
+  
 </div>
 
----
-
-## ⚡ Technical Stack
-
-This project is a playground for testing cutting-edge web technologies and performance boundaries:
-
-*   **Framework**: [Astro 6](https://astro.build/) (Hybrid Rendering Standalone Mode)
-*   **UI Components**: [React 19](https://react.dev/) (Client-side interactivity)
-*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (Modern CSS-first theme engine)
-*   **Animations**: [GSAP (GreenSock)](https://gsap.com/) (Performant, scroll-triggered physics animations)
-*   **Form Delivery**: [Nodemailer](https://nodemailer.com/) + Custom REST API Endpoint
-*   **Infrastructure**: Hosted on [Coolify](https://coolify.io/) with automatic CD pipeline
+Mi portfolio personal. Un espacio digital optimizado al milisegundo para mostrar soluciones web robustas, arquitecturas modernas y diseño interactivo premium.
 
 ---
 
-## 🛠️ Project Architecture
+## ⚡ Stack Tecnológico
 
-```text
-/
-├── public/              # Static assets (favicons, graphs, schemas)
+El proyecto funciona como un laboratorio para exprimir el rendimiento de la web moderna:
+
+*   **Core Framework**: [Astro 6](https://astro.build/) configurado en Modo Híbrido Independiente.
+*   **Componentes de UI**: [React 19](https://react.dev/) para el manejo de interactividad pesada en cliente.
+*   **Motor de Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con el nuevo compilador nativo ultra-rápido en Vite.
+*   **Animaciones**: [GSAP (GreenSock)](https://gsap.com/) para físicas fluidas en scroll y eventos de ratón.
+*   **Gestión de Formularios**: API REST interna conectada a [Nodemailer](https://nodemailer.com/).
+*   **Infraestructura**: Desplegado de forma automática mediante pipelines de CD en [Coolify](https://coolify.io/).
+
+---
+
+## 📂 Estructura del Proyecto
+
+```bash
+IvanGonzalezCloud/
+├── public/                # Recursos estáticos (Favicon, OG images, schemas)
 ├── src/
-│   ├── components/      # Modular UI, layouts, and page sections
-│   │   ├── layout/      # Navbar, Footer, CookieBanner
-│   │   ├── sections/    # Hero, Services, Portfolio list, Project Details
-│   │   └── ui/          # Canvas Background, Reveal wrappers
-│   ├── config/          # SEO Metadata and dynamic site configurations
-│   ├── data/            # Static data structures (Project list)
-│   ├── layouts/         # Base HTML structural wrappers
-│   ├── lib/             # GitHub API Client & custom utils
-│   ├── pages/           # File-based routing (Astro Routes & APIs)
-│   ├── styles/          # Tailwind imports and theme tokens
-│   └── types/           # Custom TypeScript declarations
-└── tsconfig.json        # Strict TypeScript compiler options
+│   ├── components/        # Componentes modulares
+│   │   ├── layout/        # Navbar, Footer, CookieBanner
+│   │   ├── sections/      # Hero, Servicios, Portfolio y detalles
+│   │   └── ui/            # Canvas interactivo y Reveal wrappers
+│   ├── config/            # Metadatos dinámicos para SEO y OpenGraph
+│   ├── data/              # Base de datos local (proyectos)
+│   ├── layouts/           # Plantillas base HTML semánticas
+│   ├── lib/               # Cliente API de GitHub y utilidades
+│   ├── pages/             # Enrutamiento basado en archivos (Rutas y APIs)
+│   ├── styles/            # CSS Global y tokens de diseño
+│   └── types/             # Tipado estricto de TypeScript
+└── tsconfig.json          # Configuración del compilador de TS
 ```
 
 ---
 
-## ⚙️ Development Guide
+## ⚙️ Guía de Desarrollo
 
-### Prerequisites
-- Node.js >= 22.12.0
-- npm
+### Requisitos Previos
+*   Node.js >= 22.12.0
+*   npm
 
-### Quick Start
+### Comandos Rápidos
 ```bash
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Run development server
+# Iniciar servidor local
 npm run dev
 
-# Compile for production
+# Compilar para producción
 npm run build
 
-# Preview production build locally
+# Previsualizar el bundle localmente
 npm run preview
 ```
 
 ---
 
-## 📧 Connect
+## 📧 Conecta Conmigo
 
-- **Website**: [ivangonzalez.cloud](https://www.ivangonzalez.cloud)
-- **LinkedIn**: [Ivan Gonzalez](https://linkedin.com/in/ivangonzalezufano)
-- **Email**: [hola@ivangonzalez.cloud](mailto:hola@ivangonzalez.cloud)
+<div align="center">
+
+| [🌐 Sitio Web](https://www.ivangonzalez.cloud) | [💼 LinkedIn](https://linkedin.com/in/ivangonzalezufano) | [✉️ Email](mailto:hola@ivangonzalez.cloud) |
+|---|---|---|
+
+</div>
 
 ---
 
 <div align="center">
-  <sub>Built with passion, clean code, and Astro. © 2026 Iván González.</sub>
+  <sub>Diseñado y desarrollado con pasión por Iván González. © 2026.</sub>
 </div>
