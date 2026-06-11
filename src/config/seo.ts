@@ -123,10 +123,10 @@ export const SEO_DATA = {
     keywords: ['proyectos web Next.js portfolio', 'ejemplos desarrollo react', 'apps móviles kotlin'],
   }),
   services: constructMetadata({
-    title: 'Servicios de Desarrollo Web a Medida en Sevilla',
-    description: 'Servicios profesionales de desarrollo web: Landing pages, sitios web a medida y mantenimiento. Optimización SEO y rendimiento extremo en Sevilla.',
+    title: 'Desarrollo Web a Medida y Aplicaciones | Servicios',
+    description: 'Servicios profesionales de desarrollo de software: Landing pages, aplicaciones web a medida y APIs robustas. Optimización de rendimiento y SEO técnico.',
     canonicalUrl: '/servicios',
-    keywords: ['desarrollo web a medida Sevilla', 'landing page profesional', 'mantenimiento web Sevilla'],
+    keywords: ['desarrollo web a medida', 'creacion landing page profesional', 'desarrollo de software a medida', 'programador backend frontend'],
   }),
   contact: constructMetadata({
     title: 'Contratar Desarrollador Web en Sevilla | Contacto',

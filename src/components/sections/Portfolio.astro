@@ -30,7 +30,7 @@ if (limit) {
       isFork: false,
       slug: p.slug
     };
-  }).filter(Boolean);
+  }).filter((x): x is NonNullable<typeof x> => x !== null);
 } else {
   displayRepos = await getGitHubRepos();
 }
@@ -53,7 +53,7 @@ if (limit) {
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {displayRepos.map((repo, index) => (
+    {displayRepos.map((repo) => (
       <div 
         class="project-card-reveal opacity-0 translate-y-6"
       >

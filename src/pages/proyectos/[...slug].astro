@@ -4,19 +4,19 @@ import Navbar from '@/components/layout/Navbar.astro';
 import Footer from '@/components/layout/Footer.astro';
 import CanvasBackground from '@/components/ui/CanvasBackground';
 import Reveal from '@/components/ui/Reveal';
-import { projects } from '@/data/projects';
+import { projects } from '../../data/projects';
 
-// Habilitamos el pre-renderizado para estas rutas estáticas
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
+  return projects.map((p) => ({
+    params: { slug: p.slug },
+    props: { project: p },
   }));
 }
 
-const { project } = Astro.props;
+const { slug } = Astro.params;
+const project = Astro.props.project || projects.find(p => p.slug === slug);
 
 if (!project) {
   return Astro.redirect('/404');
@@ -105,5 +105,5 @@ const schema = {
     <Footer />
   </main>
 
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 </Layout>

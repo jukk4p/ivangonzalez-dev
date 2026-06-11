@@ -1,4 +1,5 @@
-import { FormattedRepo } from '@/types/github';
+import type { FormattedRepo } from '@/types/github';
+
 
 export default function ProjectCard({ repo }: { repo: FormattedRepo }) {
   return (

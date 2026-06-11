@@ -37,7 +37,7 @@ export const projects: Project[] = [
     liveUrl: "https://tumejortarifaluz.es",
     features: [
       "Motor de Comparación Independiente: Algoritmo libre de sesgos comerciales.",
-      "Análisis de Factura por IA: Extracción y simulación automática de ahorro.",
+      "Análisis de Factura: Extracción y simulación automática de ahorro.",
       "Visualización Avanzada de Consumo: Desglose por periodos Punta, Llano y Valle.",
       "Core Web Vitals Optimizados: Experiencia de usuario ultra-fluida y SEO-ready."
     ],
@@ -46,12 +46,12 @@ export const projects: Project[] = [
   {
     slug: "tumejortarifaluz-android",
     title: "TuMejorTarifaLuz Android",
-    description: "Asistente energético nativo con IA para auditoría de facturas mediante OCR.",
-    longDescription: "Versión móvil nativa que traslada la potencia del comparador al ecosistema Android. Desarrollada íntegramente con Kotlin y Jetpack Compose, destaca por su integración con Gemini AI para la extracción inteligente de datos de facturas físicas. El proyecto demuestra el uso de arquitecturas modernas y el procesamiento de datos en movilidad para ofrecer asesoría energética de forma inmediata.",
-    tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Coroutines"],
+    description: "Asistente energético nativo para auditoría de facturas mediante OCR.",
+    longDescription: "Versión móvil nativa que traslada la potencia del comparador al ecosistema Android. Desarrollada íntegramente con Kotlin y Jetpack Compose, destaca por su integración con algoritmos de visión artificial para la extracción inteligente de datos de facturas físicas. El proyecto demuestra el uso de arquitecturas modernas y el procesamiento de datos en movilidad para ofrecer asesoría energética de forma inmediata.",
+    tech: ["Kotlin", "Jetpack Compose", "Vision API", "Coroutines"],
     githubUrl: "https://github.com/jukk4p/TuMejorTarifaLuz_Kotlin",
     features: [
-      "Auditoría Express vía IA: Procesamiento de facturas mediante Gemini AI para detección de ahorros.",
+      "Auditoría Express: Procesamiento de facturas mediante escaneo OCR inteligente para detección de ahorros.",
       "UI Declarativa Moderna: Interfaz fluida desarrollada con Jetpack Compose y adaptada a Material 3.",
       "Arquitectura MVVM: Implementación limpia y mantenible siguiendo los estándares modernos de Google.",
       "Visualización de Mercado: Acceso directo a los precios del pool energético para consulta rápida en movilidad."

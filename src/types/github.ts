@@ -24,4 +24,5 @@ export interface FormattedRepo {
   stars: number;
   isFork: boolean;
   slug?: string;
+  name?: string;
 }

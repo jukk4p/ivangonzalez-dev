@@ -24,10 +24,10 @@ const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SE
         <meta name="description" content={description || seo.description} />
         
         {/* Canonical URL */}
-        {seo.alternates?.canonical && <link rel="canonical" href={seo.alternates.canonical} />}
+        <link rel="canonical" href={seo.alternates?.canonical ? new URL(seo.alternates.canonical, Astro.site).href : Astro.url.href} />
         
         {/* Robots */}
-        {seo.robots && <meta name="robots" content={`${seo.robots.index ? 'index' : 'noindex'}, ${seo.robots.follow ? 'follow' : 'nofollow'}`} />}
+        <meta name="robots" content={seo.robots ? `${seo.robots.index ? 'index' : 'noindex'}, ${seo.robots.follow ? 'follow' : 'nofollow'}` : 'index, follow'} />
 
         {/* Open Graph */}
         {seo.openGraph && (

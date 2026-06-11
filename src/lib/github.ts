@@ -1,4 +1,5 @@
-import { GitHubRepo, FormattedRepo } from '@/types/github';
+import type { GitHubRepo, FormattedRepo } from '@/types/github';
+
 
 const FALLBACK_PROJECTS: FormattedRepo[] = [
   {
@@ -135,7 +136,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
         },
         'TuMejorTarifaLuz_Kotlin': {
           title: 'TuMejorTarifaLuz (Android)',
-          desc: 'Versión nativa para Android adaptada de la plataforma web. Desarrollada en Kotlin con Jetpack Compose, permite llevar el comparador y el escaneo de facturas por IA a cualquier lugar.',
+          desc: 'Versión nativa para Android adaptada de la plataforma web. Desarrollada en Kotlin con Jetpack Compose, permite llevar el comparador y el escaneo de facturas a cualquier lugar.',
           slug: 'tumejortarifaluz-android'
         },
         'CafeBarTiti': {
@@ -193,7 +194,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
       ];
 
 
-      const finalRepos = repos
+      const finalRepos: FormattedRepo[] = repos
         .filter(repo => {
           const isExcluded = EXCLUDED_REPOS.some(ex => ex.toLowerCase() === repo.name.toLowerCase());
           const isPinned = PINNED_REPOS.some(p => p.toLowerCase() === repo.name.toLowerCase());
@@ -226,7 +227,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
         if (!alreadyExists) {
           const fallback = FALLBACK_PROJECTS.find(f => f.name?.toLowerCase() === pinnedName.toLowerCase());
           if (fallback) {
-            finalRepos.push(fallback);
+            finalRepos.push(fallback as FormattedRepo);
           }
         }
       });
