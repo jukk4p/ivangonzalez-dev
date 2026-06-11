@@ -88,8 +88,18 @@ const skills = ['React', 'Next.js', 'Typescript', 'Tailwind CSS', 'Node.js', 'Ko
                   <h3 class="text-2xl font-display font-bold mb-6 text-white text-center">¿Por qué trabajar conmigo?</h3>
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {differentiators.map((diff) => (
-                      <div class="text-center">
-                        <div class="text-accent mb-4 text-2xl">{diff.icon}</div>
+                      <div class="text-center flex flex-col items-center">
+                        <div class="text-accent mb-4 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                          {diff.title === "Respuesta rápida" && (
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                          )}
+                          {diff.title === "Stack moderno" && (
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                          )}
+                          {diff.title === "Documentación" && (
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                          )}
+                        </div>
                         <h4 class="font-bold text-white mb-2">{diff.title}</h4>
                         <p class="text-sm text-text-muted">{diff.text}</p>
                       </div>
