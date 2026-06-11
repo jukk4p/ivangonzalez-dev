@@ -81,7 +81,7 @@ npm run preview
 
 <div align="center">
 
-| [🌐 Sitio Web](https://www.ivangonzalez.cloud) | [💼 LinkedIn](https://linkedin.com/in/ivangonzalezufano) | [✉️ Email](mailto:hola@ivangonzalez.cloud) |
+| [🌐 Sitio Web](https://www.ivangonzalez.cloud) | [💼 LinkedIn](https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114) | [✉️ Email](mailto:hola@ivangonzalez.cloud) |
 |---|---|---|
 
 </div>
