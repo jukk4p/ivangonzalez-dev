@@ -31,3 +31,7 @@ pnpm-debug.log*
 
 # scratch scripts and tools
 scratch/
+
+# GEO/SEO Reports
+GEO-AUDIT-REPORT.md
+
