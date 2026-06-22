@@ -6,9 +6,10 @@ import CookieBanner from '@/components/ui/CookieBanner';
 interface Props {
 	title?: string;
     description?: string;
+    schema?: any;
 }
 
-const { title, description } = Astro.props;
+const { title, description, schema } = Astro.props;
 
 const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SEO_DATA.home;
 ---
@@ -87,8 +88,7 @@ const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SE
             window.addEventListener('mousemove', triggerGTM, { passive: true });
             window.addEventListener('touchstart', triggerGTM, { passive: true });
         </script>
-
-
+        {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 	</head>
 	<body class="font-inter antialiased bg-bg-deep text-text-main">
         <!-- Google Tag Manager (noscript) -->

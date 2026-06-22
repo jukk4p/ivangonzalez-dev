@@ -9,10 +9,51 @@ import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer.astro';
 
 export const prerender = true;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.ivangonzalez.cloud/#person",
+      "name": "Iván González",
+      "jobTitle": "Desarrollador Web Freelance",
+      "url": "https://www.ivangonzalez.cloud",
+      "image": "https://www.ivangonzalez.cloud/ivan.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sevilla",
+        "addressRegion": "Andalucía",
+        "addressCountry": "España"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114",
+        "https://github.com/jukk4p",
+        "https://twitter.com/IvanGonzalezU"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.ivangonzalez.cloud/#service",
+      "name": "Iván González | Desarrollador Web Freelance",
+      "url": "https://www.ivangonzalez.cloud",
+      "logo": "https://www.ivangonzalez.cloud/favicon.png",
+      "image": "https://www.ivangonzalez.cloud/ivan.jpg",
+      "description": "Desarrollador Web Freelance en Sevilla especializado en Next.js, React y TypeScript. Creación de sitios web a medida, landing pages y soluciones digitales.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sevilla",
+        "addressRegion": "Andalucía",
+        "addressCountry": "ES"
+      },
+      "priceRange": "$$"
+    }
+  ]
+};
 ---
 
 
-<Layout>
+<Layout schema={schema}>
 	<main class="relative min-h-screen">
 		<CanvasBackground client:idle />
 		<Navbar />

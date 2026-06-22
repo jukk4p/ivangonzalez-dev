@@ -1,0 +1,23 @@
+# Iván González - Desarrollador Web Freelance
+
+Iván González es un desarrollador web freelance con sede en Sevilla, España, especializado en la creación de aplicaciones web escalables, landing pages optimizadas y soluciones a medida utilizando tecnologías modernas como React, Next.js, Astro y TypeScript.
+
+## Información de Contacto y Perfiles
+
+- **Sitio Web Principal:** https://www.ivangonzalez.cloud
+- **Ubicación:** Sevilla, España (Disponible para proyectos en remoto a nivel global)
+- **LinkedIn:** https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114
+- **GitHub:** https://github.com/jukk4p
+
+## Rutas Clave
+
+- [Sobre mí](https://www.ivangonzalez.cloud/sobre-mi): Trayectoria profesional, experiencia técnica y filosofía de desarrollo.
+- [Servicios](https://www.ivangonzalez.cloud/servicios): Detalles sobre servicios de desarrollo Frontend/Backend, creación de landing pages, consultoría técnica y optimización de SEO.
+- [Proyectos y Portafolio](https://www.ivangonzalez.cloud/proyectos): Muestrario de trabajos realizados incluyendo aplicaciones web de alta performance y apps móviles.
+- [Contacto](https://www.ivangonzalez.cloud/contacto): Formulario directo para consultas y contratación de servicios freelance.
+
+## Habilidades Técnicas Destacadas
+
+- **Frontend:** React, Next.js, Astro, Tailwind CSS, TypeScript.
+- **Backend:** Node.js, Express, NestJS, APIs RESTful, bases de datos SQL/NoSQL.
+- **Mobile:** Desarrollo nativo Android/Kotlin e integraciones de sistemas.
