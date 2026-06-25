@@ -62,7 +62,7 @@ const FALLBACK_PROJECTS: FormattedRepo[] = [
     title: 'La Abacería - Gourmet Experience',
     desc: 'Plataforma digital para el sector gourmet que fusiona tradición y modernidad.',
     url: 'https://github.com/jukk4p/laabaceria',
-    liveUrl: 'https://laabaceria.ivangonzalez.cloud/',
+    liveUrl: 'https://laabaceria-ecommerce.ivangonzalez.cloud/',
     updated_at: new Date().toISOString(),
     language: 'TypeScript',
     topics: ['Astro', 'GSAP', 'Tailwind'],
@@ -171,7 +171,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
         'laabaceria': {
           title: 'La Abacería - Gourmet Experience',
           desc: 'Plataforma digital para el sector gourmet. Un espacio que fusiona la tradición de la abacería clásica con una experiencia de usuario moderna y elegante, optimizada para la visualización de productos selectos.',
-          liveUrl: 'https://laabaceria.ivangonzalez.cloud/',
+          liveUrl: 'https://laabaceria-ecommerce.ivangonzalez.cloud',
           slug: 'la-abaceria'
         },
         'EspacioReiki': {
