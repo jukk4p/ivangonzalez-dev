@@ -34,7 +34,7 @@ export interface Metadata {
 const siteConfig = {
   name: 'Iván González',
   url: 'https://www.ivangonzalez.cloud',
-  ogImage: 'https://www.ivangonzalez.cloud/og-image.png',
+  ogImage: 'https://www.ivangonzalez.cloud/og-image.jpg',
   description: 'Desarrollador Web Freelance en Sevilla especializado en Next.js, React y TypeScript. Creación de sitios web a medida, landing pages y soluciones digitales.',
   links: {
     linkedin: 'https://www.linkedin.com/in/iván-gonzález-ufano-4ba3ab114',
@@ -83,8 +83,8 @@ export function constructMetadata({
       images: [
         {
           url: image,
-          width: 1200,
-          height: 630,
+          width: 1024,
+          height: 1024,
           alt: title,
         },
       ],
