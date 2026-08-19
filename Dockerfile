@@ -3,7 +3,6 @@
 # 1. Base stage
 FROM node:22.12.0-alpine AS base
 WORKDIR /app
-RUN npm install -g npm@latest
 
 # 2. Dependencies stage
 FROM base AS deps
