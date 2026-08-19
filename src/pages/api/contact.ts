@@ -1,6 +1,15 @@
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const { name, email, message } = await request.json();
@@ -13,6 +22,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
+
     // Configuración del transportador de SMTP para OVH Zimbra
     const transporter = nodemailer.createTransport({
       host: import.meta.env.SMTP_HOST || 'zimbra1.mail.ovh.net',
@@ -23,9 +36,6 @@ export const POST: APIRoute = async ({ request }) => {
         pass: import.meta.env.SMTP_PASS,
       },
       authMethod: 'LOGIN',
-      tls: {
-        rejectUnauthorized: false
-      }
     });
 
     const now = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
@@ -61,11 +71,11 @@ export const POST: APIRoute = async ({ request }) => {
             <div class="content">
               <div class="field">
                 <div class="label">Remitente</div>
-                <div class="value">${name}</div>
+                <div class="value">${safeName}</div>
               </div>
               <div class="field">
                 <div class="label">Email de respuesta</div>
-                <div class="value"><a href="mailto:${email}" style="color: #0f9d8c; text-decoration: none;">${email}</a></div>
+                <div class="value"><a href="mailto:${safeEmail}" style="color: #0f9d8c; text-decoration: none;">${safeEmail}</a></div>
               </div>
               <div class="field">
                 <div class="label">Fecha del mensaje</div>
@@ -73,7 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
               </div>
               <div class="field">
                 <div class="label">Consulta Recibida</div>
-                <div class="message-box">${message.replace(/\n/g, '<br>')}</div>
+                <div class="message-box">${safeMessage.replace(/\n/g, '<br>')}</div>
               </div>
             </div>
             <div class="footer">

@@ -12,6 +12,9 @@ export default function CanvasBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Respect user preference and avoid burning CPU/battery for users who opted out of motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     let animationFrameId: number;
     let particles: Particle[] = [];
     const mouse = { x: -1000, y: -1000, radius: 150 };
@@ -112,15 +115,25 @@ export default function CanvasBackground() {
       animationFrameId = requestAnimationFrame(animateCanvas);
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+      } else {
+        animateCanvas();
+      }
+    };
+
     initCanvas();
     animateCanvas();
 
     window.addEventListener('resize', initCanvas);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', initCanvas);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

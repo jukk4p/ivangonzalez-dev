@@ -101,7 +101,15 @@ const FALLBACK_PROJECTS: FormattedRepo[] = [
   }
 ];
 
+const CACHE_TTL_MS = 10 * 60 * 1000; // 10 min: keeps SSR requests off GitHub's 60 req/hour unauthenticated limit
+let cachedRepos: FormattedRepo[] | null = null;
+let cachedAt = 0;
+
 export async function getGitHubRepos(): Promise<FormattedRepo[]> {
+    if (cachedRepos && Date.now() - cachedAt < CACHE_TTL_MS) {
+      return cachedRepos;
+    }
+
     const GITHUB_USERNAME = 'jukk4p';
     const endpoint = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`;
 
@@ -114,7 +122,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
 
       if (!response.ok) {
         console.error(`GitHub API returned ${response.status} for ${endpoint}`);
-        return FALLBACK_PROJECTS;
+        return cachedRepos || FALLBACK_PROJECTS;
       }
 
       const repos: GitHubRepo[] = await response.json();
@@ -232,7 +240,7 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
         }
       });
 
-      return finalRepos.sort((a, b) => {
+      const sorted = finalRepos.sort((a, b) => {
           const aIndex = PINNED_REPOS.findIndex(p => p.toLowerCase() === (a.name || '').toLowerCase());
           const bIndex = PINNED_REPOS.findIndex(p => p.toLowerCase() === (b.name || '').toLowerCase());
 
@@ -241,9 +249,13 @@ export async function getGitHubRepos(): Promise<FormattedRepo[]> {
           if (bIndex !== -1) return 1;
           return b.stars - a.stars;
         });
+
+      cachedRepos = sorted;
+      cachedAt = Date.now();
+      return sorted;
     } catch (error) {
       console.error('Error fetching GitHub repos:', error);
-      return FALLBACK_PROJECTS;
+      return cachedRepos || FALLBACK_PROJECTS;
     }
 }
 

@@ -10,3 +10,8 @@ Dockerfile
 .gitignore
 .dockerignore
 npm-debug.log*
+
+# environment variables (never bake secrets into image layers)
+.env
+.env.*
+!.env.example

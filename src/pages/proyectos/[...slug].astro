@@ -34,7 +34,7 @@ const schema = {
 
 <Layout title={`${project.title} | Proyecto de Iván González`} description={project.description} schema={schema}>
   <main class="relative min-h-screen">
-    <CanvasBackground client:load />
+    <CanvasBackground client:idle />
     <Navbar />
     
     <section class="pt-40 pb-20 container mx-auto px-4 max-w-4xl">

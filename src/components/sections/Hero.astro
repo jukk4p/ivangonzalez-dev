@@ -42,6 +42,18 @@
   <script>
     import { gsap } from 'gsap';
 
+    // Safety net: guarantee the hero is legible even if the entrance
+    // animation never runs (script error, blocked chunk, throttled tab, etc.)
+    const forceVisible = () => {
+      document.querySelectorAll(
+        '#hero-subtitle, #hero-title .char, #hero-description, .hero-btn-primary, .hero-btn-secondary'
+      ).forEach((el) => {
+        (el as HTMLElement).style.opacity = '1';
+        (el as HTMLElement).style.transform = 'none';
+      });
+    };
+    const revealFallback = setTimeout(forceVisible, 2500);
+
     // 1. Prepare Title for animation (Split chars manually for performance)
     const title = document.querySelector('#hero-title');
     if (title) {
@@ -63,12 +75,13 @@
         duration: 1.2,
       }, "-=0.8")
       .to('#hero-description', { opacity: 1, duration: 1.2, y: 0 }, "-=0.8")
-      .to('.hero-btn-primary, .hero-btn-secondary', { 
-        opacity: 1, 
-        scale: 1, 
-        stagger: 0.1, 
-        duration: 1, 
-      }, "-=1");
+      .to('.hero-btn-primary, .hero-btn-secondary', {
+        opacity: 1,
+        scale: 1,
+        stagger: 0.1,
+        duration: 1,
+      }, "-=1")
+      .call(() => clearTimeout(revealFallback));
 
     // 3. Magnetic Button Effect
     const magneticWraps = document.querySelectorAll('.magnetic-wrap');
