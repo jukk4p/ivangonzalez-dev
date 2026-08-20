@@ -1,0 +1,26 @@
+---
+interface Props {
+  index: string;
+  file: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  class?: string;
+}
+
+const { index, file, title, description, align = 'left', class: className = '' } = Astro.props;
+---
+
+<div class={`section-header ${align === 'center' ? 'text-center mx-auto' : ''} max-w-3xl mb-16 md:mb-20 ${className}`}>
+  <span class="block font-space-mono text-xs text-text-muted mb-4 tracking-wide">
+    <span class="text-accent/70">{index}</span> <span class="text-text-muted/40">//</span> {file}
+  </span>
+  <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1]">
+    {title}
+  </h2>
+  {description && (
+    <p class="mt-6 text-text-muted text-lg leading-relaxed max-w-xl">
+      {description}
+    </p>
+  )}
+</div>

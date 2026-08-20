@@ -2,6 +2,7 @@
 import { projects } from '@/data/projects';
 import ProjectCard from './ProjectCard';
 import { getGitHubRepos } from '@/lib/github';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
 
 interface Props {
   limit?: number;
@@ -36,21 +37,19 @@ if (limit) {
 }
 ---
 
-<section 
-  id="proyectos" 
-  class="py-32 container mx-auto px-4"
+<section
+  id="proyectos"
+  class="py-32 container mx-auto px-4 lg:pl-20"
 >
-  <div class="portfolio-header text-center mb-16 opacity-0 translate-y-10">
-    <h2 class="text-4xl md:text-5xl font-display font-bold inline-block relative text-white">
-      {limit ? 'Proyectos Destacados' : 'Todos los Proyectos'}
-      <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
-    </h2>
-    <p class="mt-8 text-text-muted max-w-2xl mx-auto text-lg">
-      {limit 
-        ? 'Una selección de mis trabajos más impactantes extraídos de GitHub.' 
-        : 'Explora mi ecosistema completo de soluciones digitales y repositorios privados.'}
-    </p>
-  </div>
+  <SectionHeader
+    index="01"
+    file="proyectos.astro"
+    title={limit ? 'Proyectos destacados' : 'Todos los proyectos'}
+    description={limit
+      ? 'Una selección de mis trabajos más impactantes extraídos de GitHub.'
+      : 'Explora mi ecosistema completo de soluciones digitales y repositorios privados.'}
+    class="portfolio-header opacity-0 translate-y-10"
+  />
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {displayRepos.map((repo) => (

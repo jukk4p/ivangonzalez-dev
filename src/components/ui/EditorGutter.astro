@@ -1,0 +1,47 @@
+---
+const LINE_COUNT = 48;
+const lines = Array.from({ length: LINE_COUNT }, (_, i) => i + 1);
+---
+
+<aside
+  id="editor-gutter"
+  class="editor-gutter hidden lg:flex fixed top-0 left-0 h-screen flex-col items-end pr-3 py-24 z-40 pointer-events-none"
+  aria-hidden="true"
+>
+  {lines.map((n) => (
+    <span class="gutter-line" style={`flex: 1; display: flex; align-items: center;`}>{n}</span>
+  ))}
+  <span id="gutter-caret" class="gutter-caret"></span>
+</aside>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const gutter = document.getElementById('editor-gutter');
+  const caret = document.getElementById('gutter-caret');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (gutter && caret && !reduceMotion) {
+    const track = () => {
+      const trackHeight = gutter.clientHeight;
+      gsap.set(caret, { top: 0 });
+
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3,
+        onUpdate: (self) => {
+          const y = self.progress * (trackHeight - 22);
+          gsap.set(caret, { top: y });
+        },
+      });
+    };
+    track();
+  } else if (caret) {
+    caret.style.display = 'none';
+  }
+</script>

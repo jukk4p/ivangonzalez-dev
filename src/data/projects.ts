@@ -114,7 +114,7 @@ export const projects: Project[] = [
     longDescription: "Un proyecto que redefine la presencia digital de los comercios tradicionales. La Abacería combina una estética clásica y refinada con tecnologías modernas para ofrecer un escaparate digital de productos gourmet. El foco principal ha sido la experiencia de usuario visual, utilizando transiciones suaves y una tipografía elegante que evoca la calidad de los productos artesanales.",
     tech: ["Astro", "Tailwind CSS", "GSAP", "TypeScript"],
     githubUrl: "https://github.com/jukk4p/laabaceria",
-    liveUrl: "https://laabaceria-ecommerce.ivangonzalez.cloud",
+    liveUrl: "https://laabaceriayolandadelgado.es",
     features: [
       "Diseño Editorial Premium: Estética cuidada inspirada en revistas de alta gastronomía.",
       "Animaciones Fluídas: Integración de GSAP para una navegación elegante y orgánica.",

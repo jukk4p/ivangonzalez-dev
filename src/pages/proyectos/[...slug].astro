@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import Navbar from '@/components/layout/Navbar.astro';
 import Footer from '@/components/layout/Footer.astro';
-import CanvasBackground from '@/components/ui/CanvasBackground';
 import Reveal from '@/components/ui/Reveal';
 import { projects } from '../../data/projects';
 
@@ -34,7 +33,6 @@ const schema = {
 
 <Layout title={`${project.title} | Proyecto de Iván González`} description={project.description} schema={schema}>
   <main class="relative min-h-screen">
-    <CanvasBackground client:idle />
     <Navbar />
     
     <section class="pt-40 pb-20 container mx-auto px-4 max-w-4xl">

@@ -46,10 +46,10 @@ export default function Reveal({ children, className = '', threshold = 0, delay 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`relative z-10 transition-all duration-1000 ease-out ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
+      style={{ transitionDelay: `${delay}ms`, transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+      className={`relative z-10 transition-all duration-[1100ms] ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-10'
       } ${className}`}
     >

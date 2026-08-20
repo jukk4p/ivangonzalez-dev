@@ -1,4 +1,5 @@
 ---
+import SectionHeader from '@/components/ui/SectionHeader.astro';
 
 const SERVICES = [
   {
@@ -23,13 +24,13 @@ const SERVICES = [
 ---
 
 <section id="servicios" class="py-32 bg-white/[0.02]">
-  <div class="container mx-auto px-4">
-    <div class="services-header text-center mb-20 opacity-0 translate-y-10">
-      <h2 class="text-4xl md:text-5xl font-display font-bold inline-block relative text-white">
-        Qué Puedo Hacer Por Ti
-        <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
-      </h2>
-    </div>
+  <div class="container mx-auto px-4 lg:pl-20">
+    <SectionHeader
+      index="02"
+      file="servicios.astro"
+      title="Qué puedo hacer por ti"
+      class="services-header opacity-0 translate-y-10"
+    />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       {SERVICES.map((service) => (

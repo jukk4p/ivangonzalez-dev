@@ -1,4 +1,6 @@
 ---
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+
 const PRICING_PLANS = [
   {
     name: "Web Corporativa / Landing",
@@ -49,24 +51,21 @@ const PRICING_PLANS = [
 ---
 
 <section id="tarifas" class="py-24 border-t border-white/5 relative overflow-hidden">
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="pricing-header text-center mb-16 opacity-0 translate-y-10">
-      <span class="text-accent font-space-mono text-xs uppercase tracking-widest block mb-4">Planes e Inversión</span>
-      <h2 class="text-4xl md:text-5xl font-display font-bold inline-block relative text-white">
-        Tarifas Transparentes
-        <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-1 bg-accent rounded-full"></span>
-      </h2>
-      <p class="mt-8 text-text-muted max-w-2xl mx-auto text-lg">
-        Precios claros y sin sorpresas para poner en marcha la web de tu negocio sin complicaciones.
-      </p>
-    </div>
+  <div class="container mx-auto px-4 lg:pl-20 relative z-10">
+    <SectionHeader
+      index="03"
+      file="tarifas.astro"
+      title="Tarifas transparentes"
+      description="Precios claros y sin sorpresas para poner en marcha la web de tu negocio sin complicaciones."
+      class="pricing-header opacity-0 translate-y-10"
+    />
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
       {PRICING_PLANS.map((plan) => (
         <div 
           class={`pricing-card-reveal opacity-0 translate-y-6 flex flex-col h-full rounded-2xl p-8 transition-all duration-500 border ${
             plan.highlighted 
-              ? 'bg-bg-card/60 border-accent/30 shadow-[0_0_20px_rgba(0,245,212,0.02)] relative' 
+              ? 'bg-bg-card/60 border-accent/30 shadow-[0_0_20px_rgba(201,161,91,0.05)] relative' 
               : 'bg-bg-card/20 border-white/5 hover:border-white/10'
           }`}
         >

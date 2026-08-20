@@ -2,6 +2,9 @@
 import '../styles/globals.css';
 import { SEO_DATA } from '@/config/seo';
 import CookieBanner from '@/components/ui/CookieBanner';
+import BackgroundGrid from '@/components/ui/BackgroundGrid.astro';
+import EditorGutter from '@/components/ui/EditorGutter.astro';
+import CustomCursor from '@/components/ui/CustomCursor.astro';
 
 interface Props {
 	title?: string;
@@ -93,17 +96,46 @@ const seo = title ? { ...SEO_DATA.home, title: `${title} | Ivan Gonzalez` } : SE
 	<body class="font-inter antialiased bg-bg-deep text-text-main">
         <!-- Google Tag Manager (noscript) -->
         <noscript>
-            <iframe 
+            <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-525XZN8J"
-              height="0" 
-              width="0" 
+              height="0"
+              width="0"
               style="display:none;visibility:hidden"
             ></iframe>
         </noscript>
-        
+
+        <BackgroundGrid />
+        <EditorGutter />
+        <CustomCursor />
+
 		<slot />
-        
+
         <CookieBanner client:idle />
+
+        <script>
+          import { gsap } from 'gsap';
+          import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+          gsap.registerPlugin(ScrollTrigger);
+
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          if (!reduceMotion) {
+            import('lenis').then(({ default: Lenis }) => {
+              const lenis = new Lenis({
+                duration: 1.1,
+                easing: (t: number) => 1 - Math.pow(1 - t, 3),
+              });
+
+              lenis.on('scroll', ScrollTrigger.update);
+
+              gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+              });
+              gsap.ticker.lagSmoothing(0);
+            });
+          }
+        </script>
 	</body>
 </html>
 

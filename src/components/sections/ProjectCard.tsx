@@ -10,8 +10,8 @@ export default function ProjectCard({ repo }: { repo: FormattedRepo }) {
       <div className="relative z-10 flex flex-col h-full">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-            <span className="text-[10px] font-space-mono uppercase tracking-widest text-accent">
+            <span className="w-2 h-2 rounded-full bg-mint animate-pulse"></span>
+            <span className="text-[10px] font-space-mono uppercase tracking-widest text-mint">
               {repo.language}
             </span>
           </div>

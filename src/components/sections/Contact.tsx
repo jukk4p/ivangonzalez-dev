@@ -51,6 +51,9 @@ export default function Contact() {
       <Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
+            <span className="block font-space-mono text-xs text-text-muted mb-4 tracking-wide">
+              <span className="text-accent/70">04</span> <span className="text-text-muted/40">//</span> contacto.tsx
+            </span>
             <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight text-white">
               ¿Tienes una idea? <br/>
               <span className="text-accent">Hagámosla realidad.</span>
@@ -139,7 +142,7 @@ export default function Contact() {
               type="submit" 
               disabled={status !== 'idle'}
               className={`w-full py-4 rounded-md font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
-                status === 'loading' ? 'bg-accent/50 cursor-not-allowed' : 'bg-accent text-bg-deep hover:bg-accent-hover hover:shadow-[0_0_20px_rgba(15,157,140,0.4)]'
+                status === 'loading' ? 'bg-accent/50 cursor-not-allowed' : 'bg-accent text-bg-deep hover:bg-accent-hover hover:shadow-[0_0_20px_rgba(201,161,91,0.35)]'
               }`}
             >
               {status === 'loading' ? (

@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CanvasBackground from '@/components/ui/CanvasBackground';
 import Navbar from '@/components/layout/Navbar.astro';
 import Hero from '@/components/sections/Hero.astro';
 import Portfolio from '@/components/sections/Portfolio.astro';
@@ -55,7 +54,6 @@ const schema = {
 
 <Layout schema={schema}>
 	<main class="relative min-h-screen">
-		<CanvasBackground client:idle />
 		<Navbar />
 		
 		<Hero />
